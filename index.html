@@ -101,4 +101,142 @@
   .transform-left{background:var(--orange);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between}
   .transform-left h2{color:var(--navy);font-size:52px}
   .transform-text{font-size:14px;line-height:1.9;color:rgba(0,45,84,0.72);font-weight:300;margin-bottom:40px}
-  .transform-btn{display:inline-block;background:var(--navy);color:var(--white);padding:16px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-
+  .transform-btn{display:inline-block;background:var(--navy);color:var(--white);padding:16px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;align-self:flex-start}
+  .transform-right{padding:80px 60px;background:var(--navy-mid);display:flex;flex-direction:column;gap:32px}
+  .t-stat{border-left:3px solid var(--orange);padding-left:24px}
+  .t-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--white);line-height:1}
+  .t-label{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:1px;margin-top:4px;text-transform:uppercase}
+
+  /* LOCATIONS */
+  .locations{padding:80px 60px;border-bottom:1px solid var(--border)}
+  .loc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:48px}
+  .loc{background:var(--navy);padding:36px 32px}
+  .loc-city{font-size:20px;font-weight:600;margin-bottom:12px}
+  .loc-addr{font-size:12px;line-height:1.8;color:rgba(255,255,255,0.45);font-weight:300}
+
+  /* FOOTER */
+  footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--border)}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="120" height="auto">
+      <path fill="#FFFFFF" d="M34.3,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4C3,50,0.8,44.8,0.8,38.8c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9H34.3V57.4z M14.6,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C19.6,27.4,16.9,28.5,14.6,30.7z M55.1,57.1c-3-2.6-4.5-5.8-4.5-9.7h10.1c0,1.3,0.7,2.1,2,2.7c0.7,0.3,1.3,0.4,2,0.4c1.3,0,2.3-0.2,3.1-0.6c0.8-0.4,1.3-1,1.3-1.8c0-0.9-0.2-1.6-0.7-2c-0.7-0.7-2.1-1.2-4.3-1.5c-4.5-0.5-8-2.1-10.6-4.8c-2.2-2.4-3.4-5.3-3.4-8.4c0-3.8,1.3-7.1,3.7-9.9c2.7-3.1,6.2-4.7,10.6-4.7c4.4,0,8,1.4,10.7,4.2c2.8,2.8,4.2,6.4,4.2,10.7H69.4c0-3.2-1.6-4.7-4.8-4.7c-2.8,0-4.2,1.4-4.2,4.3c0,1.8,1.7,2.8,5,3.3c5.4,0.6,9.2,2.5,11.5,5.6c1.6,2.1,2.4,4.7,2.4,7.8c0,3.6-1.4,6.6-4.3,9c-2.9,2.3-6.3,3.5-10.3,3.5C61,60.7,57.8,59.5,55.1,57.1z M98.4,58.9c-2.5-1.1-4.8-2.6-6.8-4.5c-2-2-3.6-4.3-4.7-6.9c-1.2-2.7-1.8-5.5-1.8-8.5c-0.1-2.8,0.4-5.5,1.4-8.1l0.3-0.6c1.1-2.6,2.6-4.8,4.5-6.8c2.1-2.1,4.3-3.6,6.9-4.7c2.7-1.2,5.6-1.8,8.5-1.8c2.9-0.1,5.7,0.5,8.3,1.5l0.4,0.2c2.6,1.1,4.8,2.6,6.7,4.6c2,2,3.6,4.3,4.7,6.9c1.4,3.2,2,7.7,1.8,13.6l-32,0.2c0.6,1.1,1.3,2,2.1,2.9c1.1,1,2.2,1.8,3.5,2.4l0.4,0.2c1.4,0.5,2.8,0.7,4.2,0.8c1.5,0,3-0.3,4.4-0.9c1.3-0.6,2.6-1.5,3.6-2.5l7.4,7.3c-2,2-4.3,3.6-6.9,4.7c-2.7,1.2-5.5,1.8-8.5,1.8c-2.8,0.1-5.5-0.4-8.1-1.4L98.4,58.9z M111.1,28.1c-1.3-0.5-2.8-0.8-4.3-0.8c-1.6,0-3.1,0.3-4.5,0.9c-1.3,0.7-2.5,1.5-3.5,2.5c-0.9,0.9-1.6,1.9-2.1,2.9l20.4-0.1c-0.6-1.1-1.2-2-2.1-2.9c-1.1-1.1-2.3-1.9-3.7-2.5L111.1,28.1z M178.4,38.8c0,6-2.1,11.2-6.5,15.4c-4.2,4.3-9.4,6.4-15.4,6.4c-6,0-11.2-2.1-15.5-6.4c-4.3-4.3-6.4-9.4-6.4-15.4c0-6,2.1-11.2,6.4-15.4c4.3-4.3,9.4-6.5,15.5-6.5c4.3,0,8.1,1.1,11.6,3.3V1h10.3V38.8z M156.5,27.3c-3.2,0-5.9,1.1-8.1,3.4c-2.2,2.2-3.4,5-3.4,8.1c0,3.1,1.1,5.8,3.4,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.3-5,3.3-8.1c0-3.2-1.1-5.9-3.3-8.1C162.4,28.4,159.7,27.3,156.5,27.3z M217.4,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4c-4.3-4.3-6.5-9.4-6.5-15.4c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9h-10.3V57.4z M197.7,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C202.7,27.4,200,28.5,197.7,30.7z"/>
+      <circle fill="#FF8C00" cx="248" cy="55" r="7"/>
+    </svg>
+    <span class="nav-logo-sub">Beyond Infrastructure</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="standards.html">SHEQ</a>
+    <a href="impact.html">Transformation</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="impact.html">Transformation</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<section class="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-video-overlay"></div>
+  <div class="hero-video-grain"></div>
+
+  <div class="hero-left">
+    <div class="hero-tag"><span class="hero-tag-line"></span><span class="hero-tag-text">Est. 2005 · Pan-African Infrastructure</span></div>
+    <h1>Building Africa's<br><em>Enduring</em><br>Realities.</h1>
+    <p class="hero-sub">Engineering, construction, and advisory services that deliver economic dignity and community impact across the continent.</p>
+    <div class="hero-actions">
+      <a href="projects.html" class="btn-primary">Explore Our Work</a>
+      <a href="services.html" class="btn-ghost">Our Services</a>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><div class="badge-num">21</div><div class="badge-label">Years of resilience</div></div>
+      <div class="hero-badge"><div class="badge-num">R3.5B+</div><div class="badge-label">Portfolio value</div></div>
+      <div class="hero-badge"><div class="badge-num">Lv.1</div><div class="badge-label">B-BBEE status</div></div>
+      <div class="hero-badge"><div class="badge-num">4</div><div class="badge-label">African offices</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat-item"><span class="stat-num">R3.5B+</span><span class="stat-label">Portfolio Value</span></div>
+  <div class="stat-item"><span class="stat-num">Lv.1</span><span class="stat-label">B-BBEE Status</span></div>
+  <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Continental Hubs</span></div>
+  <div class="stat-item"><span class="stat-num">76yrs</span><span class="stat-label">Combined Leadership Experience</span></div>
+</div>
+
+<section class="about">
+  <div class="sec-label">About Aseda</div>
+  <div>
+    <h2>We bridge the gap between potential and reality.</h2>
+    <p class="body-text">Since 2005, Aseda has matured into a premier infrastructure firm serving investors across Africa.</p>
+    <div class="pills">
+      <span class="pill">100% Black-Owned</span>
+      <span class="pill">ISO Certified</span>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="sec-header"><h2>Integrated Service Offerings</h2></div>
+  <div class="services-grid">
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">01</div><h3 class="svc-title">Civil & Structural</h3></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">02</div><h3 class="svc-title">Water & Sanitation</h3></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">03</div><h3 class="svc-title">Roads & Transport</h3></div>
+  </div>
+</section>
+
+<section class="projects">
+  <div class="proj-grid">
+    <div class="proj featured" onclick="location.href='projects.html'"><span class="proj-tag">Roads</span><div class="proj-value">R1.2 Billion</div><div class="proj-title">National Youth Service Itirele Programme</div></div>
+  </div>
+</section>
+
+<section class="transform">
+  <div class="transform-left">
+    <h2>Business as Social.</h2>
+    <a href="impact.html" class="transform-btn">Our Impact Story</a>
+  </div>
+</section>
+
+<section class="locations">
+  <div class="loc-grid">
+    <div class="loc"><div class="loc-city">Midrand (HQ)</div><div class="loc-addr">Aseda House, Sputnik Road</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <span class="footer-copy">© Aseda 2026. All Rights Reserved.</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  const mobileNav = document.getElementById('nav-mobile');
+  mobileNav.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
