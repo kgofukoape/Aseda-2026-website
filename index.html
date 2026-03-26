@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aseda – Homepage Mockup 2026</title>
+<title>Aseda – Beyond Infrastructure</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -32,7 +32,8 @@
   /* HERO VIDEO */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
   .hero-video-wrap{position:absolute;inset:0;z-index:0}
-  .hero-video-wrap video{width:100%;height:100%;object-fit:cover}
+  /* Surgical Fix: Scale 1.1 applied here to mask watermark */
+  .hero-video-wrap video{width:100%;height:100%;object-fit:cover;transform:scale(1.1);}
   .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(105deg, rgba(0,45,84,0.88) 0%, rgba(0,45,84,0.75) 40%, rgba(0,20,40,0.55) 100%);z-index:1}
   .hero-video-grain{position:absolute;inset:0;z-index:2;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px}
   .hero-left{position:relative;z-index:3;padding:160px 60px 120px;max-width:780px}
@@ -53,14 +54,6 @@
   .badge-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:500}
   .hero-scroll{position:absolute;bottom:40px;right:60px;z-index:3;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,0.35);font-size:10px;letter-spacing:3px;text-transform:uppercase}
   .scroll-line{width:1px;height:40px;background:rgba(255,255,255,0.2)}
-  /* video placeholder shimmer */
-  .video-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#001a35 0%,#002d54 40%,#001020 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-  .video-placeholder::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,140,0,0.04) 50%,transparent 100%);animation:shimmer 3s ease-in-out infinite}
-  @keyframes shimmer{0%,100%{opacity:0.5}50%{opacity:1}}
-  .vp-icon{display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0.15}
-  .vp-play{width:64px;height:64px;border:2px solid white;border-radius:50%;display:flex;align-items:center;justify-content:center}
-  .vp-play::after{content:'▶';font-size:20px;color:white;margin-left:4px}
-  .vp-text{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:white}
 
   /* STATS */
   .stats{background:var(--orange);padding:28px 60px;display:grid;grid-template-columns:repeat(4,1fr)}
@@ -164,7 +157,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="120" height="auto">
@@ -174,29 +166,29 @@
     <span class="nav-logo-sub">Beyond Infrastructure</span>
   </div>
   <div class="nav-links">
-    <a href="#" class="active">Home</a>
-    <a href="#" >About</a>
-    <a href="#" >Services</a>
-    <a href="#" >Projects</a>
-    <a href="#" >SHEQ</a>
-    <a href="#" >Transformation</a>
-    <a href="#" >Insights</a>
-    <a href="#" >Careers</a>
-    <a href="#" class="nav-cta">Contact Us</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html" >About</a>
+    <a href="services.html" >Services</a>
+    <a href="projects.html" >Projects</a>
+    <a href="standards.html" >SHEQ</a>
+    <a href="impact.html" >Transformation</a>
+    <a href="aseda_insights.html" >Insights</a>
+    <a href="aseda_careers.html" >Careers</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
   </div>
   <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="nav-mobile" id="nav-mobile">
-  <a href="#" class="active">Home</a>
-  <a href="#" >About</a>
-  <a href="#" >Services</a>
-  <a href="#" >Projects</a>
-  <a href="#" >Transformation</a>
-  <a href="#" >Insights</a>
-  <a href="#" >Careers</a>
-  <a href="#" class="nav-cta-mobile">Contact Us</a>
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html" >About</a>
+  <a href="services.html" >Services</a>
+  <a href="projects.html" >Projects</a>
+  <a href="impact.html" >Transformation</a>
+  <a href="aseda_insights.html" >Insights</a>
+  <a href="aseda_careers.html" >Careers</a>
+  <a href="contact.html" class="nav-cta-mobile">Contact Us</a>
 </div>
 <script>
 function toggleMenu(btn){
@@ -205,21 +197,11 @@ function toggleMenu(btn){
 }
 </script>
 
-<!-- HERO VIDEO -->
 <section class="hero">
-  <!-- Video background — swap src for generated video file -->
   <div class="hero-video-wrap">
-    <div class="video-placeholder">
-      <div class="vp-icon">
-        <div class="vp-play"></div>
-        <div class="vp-text">Video: Replace with generated aerial reel</div>
-      </div>
-    </div>
-    <!-- Uncomment and point to your video file once generated:
     <video autoplay muted loop playsinline>
-      <source src="aseda_hero_reel.mp4" type="video/mp4">
+      <source src="hero-video.mp4" type="video/mp4">
     </video>
-    -->
   </div>
   <div class="hero-video-overlay"></div>
   <div class="hero-video-grain"></div>
@@ -229,8 +211,8 @@ function toggleMenu(btn){
     <h1>Building Africa's<br><em>Enduring</em><br>Realities.</h1>
     <p class="hero-sub">Engineering, construction, and advisory services that go beyond the built asset — delivering economic dignity and community impact across the continent.</p>
     <div class="hero-actions">
-      <a href="#" class="btn-primary">Explore Our Work</a>
-      <a href="#" class="btn-ghost">Our Services</a>
+      <a href="projects.html" class="btn-primary">Explore Our Work</a>
+      <a href="services.html" class="btn-ghost">Our Services</a>
     </div>
     <div class="hero-badges">
       <div class="hero-badge"><div class="badge-num">21</div><div class="badge-label">Years of resilience</div></div>
@@ -243,7 +225,6 @@ function toggleMenu(btn){
   <div class="hero-scroll"><span class="scroll-line"></span>Scroll</div>
 </section>
 
-<!-- STATS -->
 <div class="stats">
   <div class="stat-item"><span class="stat-num">R3.5B+</span><span class="stat-label">Portfolio Value</span></div>
   <div class="stat-item"><span class="stat-num">Lv.1</span><span class="stat-label">B-BBEE Status</span></div>
@@ -251,7 +232,6 @@ function toggleMenu(btn){
   <div class="stat-item"><span class="stat-num">76yrs</span><span class="stat-label">Combined Leadership Experience</span></div>
 </div>
 
-<!-- ABOUT -->
 <section class="about">
   <div class="sec-label">About Aseda</div>
   <div>
@@ -266,38 +246,35 @@ function toggleMenu(btn){
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="services">
   <div class="sec-header">
     <div class="sec-title-block"><div class="sec-label">What We Do</div><h2>Integrated Service<br>Offerings</h2></div>
-    <a href="#" class="sec-link">View all services →</a>
+    <a href="services.html" class="sec-link">View all services →</a>
   </div>
   <div class="services-grid">
-    <div class="svc"><div class="svc-num">01</div><h3 class="svc-title">Civil & Structural Engineering</h3><p class="svc-desc">World-class design and implementation for bulk infrastructure, high-rise developments, and integrated urban renewals.</p><span class="svc-arrow">↗</span></div>
-    <div class="svc"><div class="svc-num">02</div><h3 class="svc-title">Water & Sanitation Infrastructure</h3><p class="svc-desc">Engineering solutions for bulk water supply, wastewater treatment, and hydrological modelling.</p><span class="svc-arrow">↗</span></div>
-    <div class="svc"><div class="svc-num">03</div><h3 class="svc-title">Roads & Transport</h3><p class="svc-desc">Network management, capital upgrades, and rehabilitation of critical economic arteries across South Africa.</p><span class="svc-arrow">↗</span></div>
-    <div class="svc"><div class="svc-num">04</div><h3 class="svc-title">Project & Construction Management</h3><p class="svc-desc">Strategic oversight with surgical precision — from inception to close-out, anchored in Unbendable Quality.</p><span class="svc-arrow">↗</span></div>
-    <div class="svc"><div class="svc-num">05</div><h3 class="svc-title">Energy Solutions</h3><p class="svc-desc">Via Aseda Energy, we deliver renewable integration, energy audits, and grid stabilisation for a power-constrained world.</p><span class="svc-arrow">↗</span></div>
-    <div class="svc"><div class="svc-num">06</div><h3 class="svc-title">Investments & Strategic Advisory</h3><p class="svc-desc">Project bankability, PPP structuring, asset lifecycle optimisation, and strategic risk navigation across African markets.</p><span class="svc-arrow">↗</span></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">01</div><h3 class="svc-title">Civil & Structural Engineering</h3><p class="svc-desc">World-class design and implementation for bulk infrastructure, high-rise developments, and integrated urban renewals.</p><span class="svc-arrow">↗</span></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">02</div><h3 class="svc-title">Water & Sanitation Infrastructure</h3><p class="svc-desc">Engineering solutions for bulk water supply, wastewater treatment, and hydrological modelling.</p><span class="svc-arrow">↗</span></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">03</div><h3 class="svc-title">Roads & Transport</h3><p class="svc-desc">Network management, capital upgrades, and rehabilitation of critical economic arteries across South Africa.</p><span class="svc-arrow">↗</span></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">04</div><h3 class="svc-title">Project & Construction Management</h3><p class="svc-desc">Strategic oversight with surgical precision — from inception to close-out, anchored in Unbendable Quality.</p><span class="svc-arrow">↗</span></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">05</div><h3 class="svc-title">Energy Solutions</h3><p class="svc-desc">Via Aseda Energy, we deliver renewable integration, energy audits, and grid stabilisation for a power-constrained world.</p><span class="svc-arrow">↗</span></div>
+    <div class="svc" onclick="location.href='services.html'"><div class="svc-num">06</div><h3 class="svc-title">Investments & Strategic Advisory</h3><p class="svc-desc">Project bankability, PPP structuring, asset lifecycle optimisation, and strategic risk navigation across African markets.</p><span class="svc-arrow">↗</span></div>
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="projects">
   <div class="sec-header">
     <div class="sec-title-block"><div class="sec-label">Track Record</div><h2>Strategic Projects</h2></div>
-    <a href="#" class="sec-link">View full portfolio →</a>
+    <a href="projects.html" class="sec-link">View full portfolio →</a>
   </div>
   <div class="proj-grid">
-    <div class="proj featured"><div class="proj-bgnum">01</div><span class="proj-tag">Roads & Transport</span><div class="proj-value">R1.2 Billion</div><div class="proj-title">National Youth Service Itirele Programme</div><div class="proj-loc">North West Province, SA</div></div>
-    <div class="proj"><div class="proj-bgnum">02</div><span class="proj-tag">Civil & Structural</span><div class="proj-value">$190M</div><div class="proj-title">Ghana Cocobod Head Office</div><div class="proj-loc">Accra, Ghana</div></div>
-    <div class="proj"><div class="proj-bgnum">03</div><span class="proj-tag">Bulk Water</span><div class="proj-value">R350M</div><div class="proj-title">Magalies WWTP Upgrade</div><div class="proj-loc">North West, SA</div></div>
-    <div class="proj"><div class="proj-bgnum">04</div><span class="proj-tag">Roads</span><div class="proj-value">R567M</div><div class="proj-title">Gauteng Provincial Roads — Joburg Region</div><div class="proj-loc">Johannesburg, SA</div></div>
-    <div class="proj"><div class="proj-bgnum">05</div><span class="proj-tag">Urban Development</span><div class="proj-value">R320M</div><div class="proj-title">Olivenhoutbosch Ext. 36</div><div class="proj-loc">Gauteng, SA</div></div>
+    <div class="proj featured" onclick="location.href='projects.html'"><div class="proj-bgnum">01</div><span class="proj-tag">Roads & Transport</span><div class="proj-value">R1.2 Billion</div><div class="proj-title">National Youth Service Itirele Programme</div><div class="proj-loc">North West Province, SA</div></div>
+    <div class="proj" onclick="location.href='projects.html'"><div class="proj-bgnum">02</div><span class="proj-tag">Civil & Structural</span><div class="proj-value">$190M</div><div class="proj-title">Ghana Cocobod Head Office</div><div class="proj-loc">Accra, Ghana</div></div>
+    <div class="proj" onclick="location.href='projects.html'"><div class="proj-bgnum">03</div><span class="proj-tag">Bulk Water</span><div class="proj-value">R350M</div><div class="proj-title">Magalies WWTP Upgrade</div><div class="proj-loc">North West, SA</div></div>
+    <div class="proj" onclick="location.href='projects.html'"><div class="proj-bgnum">04</div><span class="proj-tag">Roads</span><div class="proj-value">R567M</div><div class="proj-title">Gauteng Provincial Roads — Joburg Region</div><div class="proj-loc">Johannesburg, SA</div></div>
+    <div class="proj" onclick="location.href='projects.html'"><div class="proj-bgnum">05</div><span class="proj-tag">Urban Development</span><div class="proj-value">R320M</div><div class="proj-title">Olivenhoutbosch Ext. 36</div><div class="proj-loc">Gauteng, SA</div></div>
   </div>
 </section>
 
-<!-- TRANSFORMATION -->
 <section class="transform">
   <div class="transform-left">
     <div>
@@ -305,7 +282,7 @@ function toggleMenu(btn){
       <h2>Business as Social.<br>Social as Business.</h2>
       <p class="transform-text">At Aseda, Corporate Social Investment is not a peripheral activity — it is the bedrock of our business model. Our compliance with B-BBEE, Employment Equity, and EPWP is a natural byproduct of how we operate every day.</p>
     </div>
-    <a href="#" class="transform-btn">Our Impact Story</a>
+    <a href="impact.html" class="transform-btn">Our Impact Story</a>
   </div>
   <div class="transform-right">
     <div class="t-stat"><div class="t-num">1,200+</div><div class="t-label">Youth trained through Itirele Programme</div></div>
@@ -315,7 +292,6 @@ function toggleMenu(btn){
   </div>
 </section>
 
-<!-- LOCATIONS -->
 <section class="locations">
   <div class="sec-header">
     <div class="sec-title-block"><div class="sec-label">Where We Are</div><h2>Pan-African Presence</h2></div>
@@ -328,18 +304,16 @@ function toggleMenu(btn){
   </div>
 </section>
 
-<!-- CTA -->
 <section class="cta">
   <div class="sec-label">Let's Build Together</div>
   <h2>Ready to turn potential<br>into built reality?</h2>
   <p class="cta-sub">Speak to our team about your next infrastructure project.</p>
   <div class="cta-actions">
-    <a href="#" class="btn-primary">Get In Touch</a>
-    <a href="#" class="btn-ghost">View Careers</a>
+    <a href="contact.html" class="btn-primary">Get In Touch</a>
+    <a href="aseda_careers.html" class="btn-ghost">View Careers</a>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
@@ -359,9 +333,9 @@ function toggleMenu(btn){
         <a class="s-icon" href="#">ig</a>
       </div>
     </div>
-    <div class="footer-col"><h4>About</h4><div class="footer-links"><a href="#">Our Story</a><a href="#">The Aseda Way</a><a href="#">Leadership</a><a href="#">SHEQ Standards</a><a href="#">Governance</a></div></div>
-    <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="#">Civil & Structural</a><a href="#">Water & Sanitation</a><a href="#">Roads & Transport</a><a href="#">Energy Solutions</a><a href="#">Advisory</a></div></div>
-    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="#">Projects</a><a href="#">News & Insights</a><a href="#">Social Impact</a><a href="#">Careers</a><a href="#">Contact</a></div></div>
+    <div class="footer-col"><h4>About</h4><div class="footer-links"><a href="about.html">Our Story</a><a href="about.html">The Aseda Way</a><a href="about.html">Leadership</a><a href="standards.html">SHEQ Standards</a><a href="about.html">Governance</a></div></div>
+    <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="services.html">Civil & Structural</a><a href="services.html">Water & Sanitation</a><a href="services.html">Roads & Transport</a><a href="services.html">Energy Solutions</a><a href="services.html">Advisory</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="projects.html">Projects</a><a href="aseda_insights.html">News & Insights</a><a href="impact.html">Social Impact</a><a href="aseda_careers.html">Careers</a><a href="contact.html">Contact</a></div></div>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© Aseda 2026. All Rights Reserved.</span>
