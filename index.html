@@ -2,95 +2,65 @@
 <html lang="en-ZA">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aseda | Beyond Infrastructure – 21 Years of Resilience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aseda | Beyond Infrastructure – 2026 Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --navy: #002D54;
-            --navy-mid: #003d70;
-            --orange: #FF8C00;
-            --white: #FFFFFF;
-            --grey: #E5E5E5;
-        }
+        :root { --navy:#002D54; --orange:#FF8C00; --white:#FFFFFF; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'DM Sans', sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--white); overflow-x: hidden; }
-
-        /* ── NAVIGATION (Mobile Optimized) ── */
+        /* ── ORIGINAL NAVIGATION ── */
         nav {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
-            padding: 15px 5%; display: flex; align-items: center; justify-content: space-between;
-            background: rgba(0, 45, 84, 0.9); backdrop-filter: blur(15px);
+            position: fixed; top:0; width:100%; z-index:1000;
+            padding: 20px 5%; display: flex; align-items: center; justify-content: space-between;
+            background: rgba(0, 45, 84, 0.95); backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .logo-group { display: flex; flex-direction: column; }
-        .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; }
-        .logo-sub { font-size: 8px; text-transform: uppercase; letter-spacing: 4px; color: var(--orange); margin-top: 2px; }
-        
-        .nav-links { display: none; gap: 25px; } /* Hidden on mobile */
-        @media (min-width: 1024px) { .nav-links { display: flex; } }
-        
-        .nav-links a { color: var(--white); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; transition: 0.3s; }
+        .logo-box svg { height: 40px; width: auto; }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; transition: 0.3s; }
         .nav-links a:hover { opacity: 1; color: var(--orange); }
 
-        /* ── HERO SECTION (Watermark Masking) ── */
-        .hero {
-            position: relative; height: 100vh; width: 100%;
-            display: flex; align-items: center; justify-content: center;
-            text-align: center; padding: 0 10%; overflow: hidden;
-        }
-        .hero-video-container {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 1; pointer-events: none;
-        }
-        .hero-video-container video {
-            width: 100%; height: 100%; object-fit: cover; opacity: 0.5;
-            /* Zoom slightly to help push watermark toward the edge */
-            transform: scale(1.05); 
-        }
-        /* The Mask: subtle gradient to hide bottom watermark area */
-        .hero-video-container::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 15%;
-            background: linear-gradient(to top, var(--navy), transparent); z-index: 2;
+        /* ── HERO & WATERMARK MASK ── */
+        .hero { position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .video-wrap { position: absolute; top:0; left:0; width:100%; height:100%; z-index:1; }
+        video { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+        
+        /* Masking the watermark at the bottom */
+        .watermark-mask {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; 
+            background: var(--navy); z-index: 2; /* Adjust height if needed */
         }
 
-        .hero-content { position: relative; z-index: 10; max-width: 900px; margin-top: 60px; }
-        .hero h1 { 
-            font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 8vw, 72px); 
-            line-height: 1.1; margin-bottom: 20px; font-weight: 400;
-        }
+        .hero-content { position: relative; z-index: 10; max-width: 900px; padding: 0 20px; }
+        .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 8vw, 82px); line-height: 1; margin-bottom: 20px; font-weight: 300; }
         .hero h1 span { color: var(--orange); font-style: italic; }
-        .hero p { font-size: clamp(14px, 2vw, 18px); color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 35px; line-height: 1.6; }
+        .hero p { font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 40px; }
 
-        .btn-group { display: flex; flex-direction: column; gap: 15px; align-items: center; }
-        @media (min-width: 768px) { .btn-group { flex-direction: row; justify-content: center; } }
-
-        .btn { padding: 16px 32px; text-decoration: none; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; }
-        .btn-orange { background: var(--orange); color: var(--white); }
-        .btn-outline { border: 1px solid var(--white); color: var(--white); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        /* ── TRUST BAR (Mobile Responsive) ── */
+        /* ── TRUST BAR (MOBILE OPTIMIZED) ── */
         .trust-bar {
             position: relative; z-index: 20; background: var(--white); color: var(--navy);
-            padding: 40px 5%; display: grid; grid-template-columns: 1fr; gap: 30px; text-align: center;
+            display: flex; flex-wrap: wrap; justify-content: space-around; padding: 60px 5%; text-align: center;
         }
-        @media (min-width: 768px) { .trust-bar { grid-template-columns: repeat(3, 1fr); padding: 60px 5%; } }
-        
-        .trust-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 700; margin-bottom: 5px; }
-        .trust-item p { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #666; }
-        .trust-item:not(:last-child) { border-bottom: 1px solid var(--grey); padding-bottom: 20px; }
-        @media (min-width: 768px) { .trust-item:not(:last-child) { border-bottom: none; border-right: 1px solid var(--grey); padding-bottom: 0; } }
+        .trust-item { flex: 1; min-width: 250px; padding: 20px; }
+        .trust-item h2 { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 700; margin-bottom: 10px; }
+        .trust-item p { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; color: #666; }
 
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Add a mobile menu burger later if needed */
+            .hero h1 { font-size: 48px; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo-group">
-            <span class="logo-main">ASEDA</span>
-            <span class="logo-sub">Beyond Infrastructure</span>
+        <div class="logo-box">
+            <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FFFFFF" d="M35.6,73.4L18.7,30.7H31l11,30.3l11-30.3h12.3l-17,42.7H35.6z M92,73.4l-1.5-5.9h-17.2l-1.5,5.9H60l11.4-42.7h12.2l11.4,42.7H92z M89.4,60.6l-7.1-27.7l-7.1,27.7H89.4z M112.4,56.5c0,11.2,7.7,18,17.7,18c4.2,0,7.6-1.1,10.1-2.9v-8.8c-2.4,1.8-5.1,2.7-8.2,2.7c-5.1,0-8.8-3.4-8.8-9.1c0-5.6,3.7-9,8.8-9c3,0,5.8,0.9,8.2,2.7v-8.8c-2.5-1.8-5.9-2.9-10.1-2.9C120.1,38.5,112.4,45.3,112.4,56.5z M153.2,73.4V30.7h10.8v42.7H153.2z M176,56.5c0,11.2,7.7,18,17.7,18c4.2,0,7.6-1.1,10.1-2.9v-8.8c-2.4,1.8-5.1,2.7-8.2,2.7c-5.1,0-8.8-3.4-8.8-9.1c0-5.6,3.7-9,8.8-9c3,0,5.8,0.9,8.2,2.7v-8.8c-2.5-1.8-5.9-2.9-10.1-2.9C183.7,38.5,176,45.3,176,56.5z"/>
+                <circle fill="#FF8C00" cx="230" cy="52" r="8"/>
+            </svg>
         </div>
         <div class="nav-links">
             <a href="index.html">Home</a>
@@ -98,39 +68,39 @@
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
             <a href="impact.html">Impact</a>
-            <a href="standards.html">SHEQ</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-video-container">
+        <div class="video-wrap">
             <video autoplay muted loop playsinline>
                 <source src="hero-video.mp4" type="video/mp4">
             </video>
+            <div class="watermark-mask"></div>
         </div>
         
         <div class="hero-content">
             <h1>Beyond Infrastructure:<br><span>Strategic Delivery, Enduring Impact</span></h1>
-            <p>Since 2005, Aseda has matured into a premier infrastructure delivery partner, transforming nature’s potential into built realities through 21 Years of Tested Resilience.</p>
-            <div class="btn-group">
-                <a href="projects.html" class="btn btn-orange">Explore Portfolio</a>
-                <a href="about.html" class="btn btn-outline">Our 21-Year Legacy</a>
+            <p>Since 2005, Aseda has matured into a premier infrastructure delivery partner through 21 Years of Tested Resilience.</p>
+            <div style="display:flex; gap:20px; justify-content:center;">
+                <a href="projects.html" style="background:var(--orange); color:white; padding:18px 40px; text-decoration:none; font-weight:600; text-transform:uppercase; letter-spacing:2px; font-size:12px;">Explore Portfolio</a>
+                <a href="about.html" style="border:1px solid white; color:white; padding:18px 40px; text-decoration:none; font-weight:600; text-transform:uppercase; letter-spacing:2px; font-size:12px;">21-Year Legacy</a>
             </div>
         </div>
     </section>
 
     <section class="trust-bar">
         <div class="trust-item">
-            <h3>76 Years</h3>
-            <p>Collective Leadership Track Record</p>
+            <h2>76 Years</h2>
+            <p>Collective Leadership Expertise</p>
         </div>
         <div class="trust-item">
-            <h3>R1.2 Billion</h3>
+            <h2>R1.2 Billion</h2>
             <p>Flagship Itirele Programme</p>
         </div>
         <div class="trust-item">
-            <h3>Level 1</h3>
+            <h2>Level 1</h2>
             <p>Verified B-BBEE Status</p>
         </div>
     </section>
