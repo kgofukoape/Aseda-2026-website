@@ -20,8 +20,8 @@
   body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
 
   /* NAV */
-  nav{position:fixed;top:0;width:100%;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,45,84,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-  .logo-svg{height:42px;width:auto}
+  nav{position:sticky;top:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,45,84,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  .logo-box svg{height:42px;width:auto}
   .nav-links{display:flex;gap:36px;align-items:center}
   .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
   .nav-links a:hover{color:var(--orange)}
@@ -29,7 +29,7 @@
 
   /* HERO */
   .hero{height:100vh;position:relative;display:flex;align-items:center;padding:0 60px;overflow:hidden}
-  .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;z-index:1;transform: scale(1.1);} /* Scale 1.1 hides the watermark */
+  .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;z-index:1;transform: scale(1.1);}
   .hero-content{position:relative;z-index:2;max-width:800px}
   .hero h1{font-family:'Cormorant Garamond',serif;font-size:72px;line-height:1.1;margin-bottom:24px;font-weight:300}
   .hero h1 span{color:var(--orange);font-style:italic}
@@ -56,7 +56,7 @@
 
 <nav>
   <div class="logo-box">
-    <svg class="logo-svg" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
       <path fill="#FFFFFF" d="M35.6,73.4L18.7,30.7H31l11,30.3l11-30.3h12.3l-17,42.7H35.6z M92,73.4l-1.5-5.9h-17.2l-1.5,5.9H60l11.4-42.7h12.2l11.4,42.7H92z M89.4,60.6l-7.1-27.7l-7.1,27.7H89.4z M112.4,56.5c0,11.2,7.7,18,17.7,18c4.2,0,7.6-1.1,10.1-2.9v-8.8c-2.4,1.8-5.1,2.7-8.2,2.7c-5.1,0-8.8-3.4-8.8-9.1c0-5.6,3.7-9,8.8-9c3,0,5.8,0.9,8.2,2.7v-8.8c-2.5-1.8-5.9-2.9-10.1-2.9C120.1,38.5,112.4,45.3,112.4,56.5z M153.2,73.4V30.7h10.8v42.7H153.2z M176,56.5c0,11.2,7.7,18,17.7,18c4.2,0,7.6-1.1,10.1-2.9v-8.8c-2.4,1.8-5.1,2.7-8.2,2.7c-5.1,0-8.8-3.4-8.8-9.1c0-5.6,3.7-9,8.8-9c3,0,5.8,0.9,8.2,2.7v-8.8c-2.5-1.8-5.9-2.9-10.1-2.9C183.7,38.5,176,45.3,176,56.5z"/>
       <circle fill="#FF8C00" cx="230" cy="52" r="8"/>
     </svg>
