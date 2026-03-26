@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services – Aseda | Beyond Infrastructure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#002D54;
+  --navy-mid:#003d70;
+  --navy-light:#004d8a;
+  --orange:#FF8C00;
+  --orange-light:#ffaa40;
+  --white:#FFFFFF;
+  --grey:#E5E5E5;
+  --border:#003d70;
+  --text-body:rgba(255,255,255,0.65);
+  --text-muted:rgba(255,255,255,0.4);
+}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,45,84,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,140,0,0.2)}
+.nav-logo{display:flex;flex-direction:column}
+.nav-logo-sub{font-size:9px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;font-weight:500;margin-top:3px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--orange)}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:10px 22px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all 0.3s}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-mobile{display:none;position:fixed;top:73px;left:0;right:0;background:rgba(0,45,84,0.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,140,0,0.2);padding:20px 24px 32px;flex-direction:column;gap:0;z-index:99}
+.nav-mobile.open{display:flex}
+.nav-mobile a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile a:hover,.nav-mobile a.active{color:var(--orange)}
+.nav-mobile .nav-cta-mobile{background:var(--orange);color:var(--white)!important;padding:16px 24px;text-align:center;margin-top:16px;border-bottom:none;font-weight:600;letter-spacing:1.5px}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:16px 32px}
+  .nav-links{gap:20px}
+  .nav-links a{font-size:11px}
+}
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  /* page hero */
+  .page-hero{padding:60px 24px 48px}
+  .page-hero h1,h1{font-size:52px!important}
+  .page-hero-sub{font-size:15px}
+  /* hero */
+  .hero{min-height:auto}
+  .hero-left{padding:100px 24px 60px}
+  .hero-left h1{font-size:56px}
+  /* stats / strips */
+  .stats,.port-stats,.impact-strip{grid-template-columns:1fr 1fr!important;padding:0}
+  .stat-item,.p-stat,.impact-num{padding:24px 20px;border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+  /* 2-col grids -> 1-col */
+  .section-inner,.philosophy-inner,.bbee-inner,.result-inner,.intro-strip,.value-inner,.csi-inner,
+  .itirele-section,.transform,.featured-inner,.cta-strip{grid-template-columns:1fr!important;gap:0}
+  .itirele-section{display:flex;flex-direction:column}
+  .itirele-img{min-height:280px}
+  /* 3-col grids -> 1-col */
+  .services-grid,.svc-grid,.way-pillars,.pillars-grid,.pillars-grid-bottom,.leadership-grid,
+  .accred-grid,.locations-grid,.loc-grid,.footer-top,.gov-grid,.compliance-grid,
+  .founding-grid,.advisory-grid,.crosssell-grid{grid-template-columns:1fr!important}
+  /* projects grid -> 1-col */
+  .proj-grid,.projects-grid{grid-template-columns:1fr!important}
+  /* hero badges row */
+  .hero-badges{grid-template-columns:1fr 1fr;display:grid;gap:1px}
+  /* featured project */
+  .featured-inner{display:flex;flex-direction:column}
+  .featured-img{min-height:260px}
+  /* value right */
+  .value-right{grid-template-columns:1fr 1fr!important}
+  /* photo strip */
+  .photo-strip{grid-template-columns:1fr 1fr!important}
+  /* clients */
+  .clients-grid{grid-template-columns:1fr 1fr!important}
+  /* cta strip */
+  .cta-strip{padding:48px 24px;text-align:center}
+  .cta-strip h2{font-size:36px!important}
+  .cta-actions,.cta-strip-actions{flex-direction:column;align-items:center;width:100%}
+  .btn-navy,.btn-outline-navy,.btn-primary,.btn-ghost{width:100%;text-align:center;box-sizing:border-box}
+  /* sections padding */
+  .section,.about,.services,.projects-section,.leadership-section,.gov-section,
+  .accred-section,.philosophy,.bbee-section,.pillars-section,.result-section,
+  .csi-statement,.value-section,.clients-section,.crosssell,.featured-project,
+  .svc-overview,.svc-section,.intro-strip,.way-section,.itirele-content{padding:60px 24px!important}
+  .svc-nav,.filter-bar{padding:0 16px}
+  .filter-sort{display:none}
+  /* footer */
+  footer{padding:48px 24px 24px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  /* statutory */
+  .statutory{grid-template-columns:1fr 1fr!important;padding:24px}
+  /* section headers */
+  .section-header{flex-direction:column;align-items:flex-start;gap:16px}
+  /* hero deco hide */
+  .hero-deco,.hero-scroll{display:none}
+  /* hero badges */
+  .hero-badges{margin-top:32px}
+  /* bbee badge */
+  .bbee-badge-large{flex-direction:column;gap:12px;text-align:center}
+  /* pillar card padding */
+  .pillar-card,.svc-card,.phil-card,.exec-card,.gov-card,.compliance-card,
+  .loc,.location-card,.accred-card,.proj-card{padding:32px 24px}
+  /* h2 sizes */
+  h2{font-size:36px!important}
+  .about-headline,.transform-headline{font-size:36px!important}
+  /* intro strip right grid */
+  .intro-right{grid-template-columns:1fr 1fr!important}
+  /* itirele targets */
+  .itirele-targets{padding-top:24px}
+  /* svc section inner */
+  .svc-section-inner{grid-template-columns:1fr!important}
+}
+@media(max-width:480px){
+  .page-hero h1,h1{font-size:40px!important}
+  h2{font-size:30px!important}
+  .hero-left h1{font-size:44px!important}
+  .impact-big,.stat-num,.p-stat-num{font-size:44px!important}
+  .stats,.port-stats,.impact-strip{grid-template-columns:1fr!important}
+  .photo-strip{grid-template-columns:1fr!important}
+  .value-right{grid-template-columns:1fr!important}
+}
+
+/* ── PAGE HERO ── */
+.page-hero{padding:100px 60px 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.page-hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,transparent,rgba(255,140,0,0.04));pointer-events:none}
+.breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.breadcrumb a{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);text-decoration:none}
+.breadcrumb a:hover{color:var(--orange)}
+.breadcrumb span{color:rgba(255,255,255,0.2);font-size:11px}
+.breadcrumb-current{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange)}
+.page-hero-inner{max-width:800px;position:relative;z-index:2}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1.0;margin-bottom:24px}
+.page-hero h1 em{font-style:italic;color:var(--orange)}
+.page-hero-sub{font-size:17px;line-height:1.85;color:var(--text-body);font-weight:300;max-width:640px}
+.hero-deco{position:absolute;right:60px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;align-items:flex-end;opacity:0.25}
+.deco-l{height:1px;background:var(--orange)}
+
+/* ── SERVICE NAV TABS ── */
+.svc-nav{position:sticky;top:73px;z-index:90;background:var(--navy-mid);border-bottom:1px solid var(--border);padding:0 60px;display:flex;gap:0;overflow-x:auto}
+.svc-nav-item{padding:18px 28px;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;display:flex;align-items:center;gap:10px}
+.svc-nav-item:hover{color:var(--white)}
+.svc-nav-item.active{color:var(--orange);border-bottom-color:var(--orange)}
+.svc-nav-num{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:rgba(255,140,0,0.5)}
+
+/* ── INTRO STRIP ── */
+.intro-strip{padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;border-bottom:1px solid var(--border)}
+.intro-left{}
+.sec-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:12px}
+h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1.15;margin-bottom:24px}
+h2 em{font-style:italic;color:var(--orange)}
+.body-lg{font-size:16px;line-height:1.9;color:var(--text-body);font-weight:300;margin-bottom:20px}
+.body-sm{font-size:14px;line-height:1.85;color:var(--text-body);font-weight:300}
+.intro-right{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.intro-stat{background:var(--navy);padding:32px 28px;display:flex;flex-direction:column;gap:8px}
+.intro-stat-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--orange);line-height:1}
+.intro-stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+
+/* ── SERVICE CARDS OVERVIEW ── */
+.svc-overview{padding:0 60px 80px;border-bottom:1px solid var(--border)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:64px}
+.svc-card{background:var(--navy);padding:52px 44px;position:relative;overflow:hidden;cursor:pointer;transition:background 0.3s;text-decoration:none;display:block;color:inherit}
+.svc-card:hover{background:var(--navy-mid)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);transform:scaleX(0);transition:transform 0.35s;transform-origin:left}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-card-num{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:rgba(255,140,0,0.07);line-height:1;margin-bottom:20px}
+.svc-card-icon{width:48px;height:48px;border:1px solid rgba(255,140,0,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.svc-card-icon svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.svc-card h3{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;margin-bottom:14px;line-height:1.3}
+.svc-card p{font-size:13px;line-height:1.8;color:var(--text-muted);font-weight:300;margin-bottom:28px}
+.svc-card-tags{display:flex;flex-direction:column;gap:6px;margin-bottom:32px}
+.svc-card-tag{font-size:11px;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:8px}
+.svc-card-tag::before{content:'';width:16px;height:1px;background:rgba(255,140,0,0.4);flex-shrink:0}
+.svc-card-arrow{position:absolute;bottom:44px;right:44px;width:36px;height:36px;border:1px solid rgba(255,140,0,0.25);display:flex;align-items:center;justify-content:center;color:rgba(255,140,0,0.5);font-size:16px;transition:all 0.3s}
+.svc-card:hover .svc-card-arrow{background:var(--orange);border-color:var(--orange);color:var(--white)}
+
+/* ── INDIVIDUAL SERVICE SECTIONS ── */
+.svc-section{padding:100px 60px;border-bottom:1px solid var(--border)}
+.svc-section:nth-child(odd){background:var(--navy)}
+.svc-section:nth-child(even){background:var(--navy-mid)}
+.svc-section-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.svc-section-left{}
+.svc-section-tag{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.svc-section-tag-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(255,140,0,0.2);line-height:1}
+.svc-section-tag-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);font-weight:500}
+.svc-section-left h2{font-size:42px;margin-bottom:20px}
+.svc-section-sub{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--text-muted);margin-bottom:28px;line-height:1.5}
+.svc-section-right{}
+.svc-deliverables{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:32px}
+.deliverable{background:var(--navy);padding:24px 28px;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;transition:background 0.2s}
+.svc-section:nth-child(even) .deliverable{background:var(--navy-mid)}
+.deliverable:hover{background:var(--navy-light)}
+.del-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);margin-top:6px;flex-shrink:0}
+.del-content{}
+.del-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.del-desc{font-size:12px;line-height:1.7;color:var(--text-muted);font-weight:300}
+.svc-highlight{background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.2);padding:24px 28px;margin-top:24px}
+.svc-highlight-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:10px}
+.svc-highlight-text{font-size:13px;line-height:1.75;color:var(--text-body);font-weight:300}
+.svc-cta-btn{display:inline-flex;align-items:center;gap:10px;margin-top:28px;color:var(--orange);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(255,140,0,0.3);padding-bottom:4px;transition:all 0.2s}
+.svc-cta-btn:hover{color:var(--white);border-color:var(--white)}
+
+/* ── ENERGY ASEDA ENTITY CALLOUT ── */
+.entity-callout{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;padding:28px 32px;border:1px solid rgba(255,140,0,0.3);background:rgba(255,140,0,0.06);margin-bottom:28px}
+.entity-badge{background:var(--orange);color:var(--navy);padding:8px 16px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;white-space:nowrap}
+.entity-text{font-size:13px;line-height:1.7;color:var(--text-body);font-weight:300}
+.entity-text strong{color:var(--white);font-weight:600}
+
+/* ── ADVISORY COMPETENCIES ── */
+.advisory-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.advisory-item{background:var(--navy);padding:32px 28px}
+.advisory-item-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:rgba(255,140,0,0.15);line-height:1;margin-bottom:12px}
+.advisory-item-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:10px}
+.advisory-item-desc{font-size:13px;line-height:1.75;color:var(--text-muted);font-weight:300}
+
+/* ── CROSS-SELL STRIP ── */
+.crosssell{padding:80px 60px;border-bottom:1px solid var(--border)}
+.crosssell h2{margin-bottom:48px;max-width:480px}
+.crosssell-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.crosssell-item{background:var(--navy);padding:32px 28px;display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:inherit;transition:background 0.2s}
+.crosssell-item:hover{background:var(--navy-mid)}
+.crosssell-item-left{}
+.crosssell-item-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(255,140,0,0.3);margin-bottom:6px}
+.crosssell-item-name{font-size:15px;font-weight:600;color:var(--white)}
+.crosssell-item-arrow{color:rgba(255,140,0,0.4);font-size:20px;transition:transform 0.2s}
+.crosssell-item:hover .crosssell-item-arrow{transform:translate(4px,-4px);color:var(--orange)}
+
+/* ── CTA STRIP ── */
+.cta-strip{padding:80px 60px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;background:var(--orange)}
+.cta-strip h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:400;color:var(--navy);line-height:1.1}
+.cta-strip p{font-size:15px;color:rgba(0,45,84,0.7);margin-top:12px;font-weight:300}
+.cta-strip-actions{display:flex;gap:16px;flex-shrink:0}
+.btn-navy{background:var(--navy);color:var(--white);padding:18px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;white-space:nowrap}
+.btn-outline-navy{color:var(--navy);padding:18px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;border:2px solid var(--navy);white-space:nowrap}
+
+/* ── FOOTER ── */
+footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-logo-sub{font-size:9px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;margin-bottom:16px;display:block;margin-top:4px}
+.footer-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.35);font-weight:300;max-width:280px;margin-bottom:16px}
+.footer-social{display:flex;gap:10px}
+.s-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,0.4);text-decoration:none;font-weight:600;transition:all 0.2s}
+.s-icon:hover{border-color:var(--orange);color:var(--orange)}
+.footer-col h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:20px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+.footer-reg{font-size:11px;color:rgba(255,255,255,0.15)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.page-hero-inner>*{animation:fadeUp 0.7s ease both}
+.page-hero-inner>*:nth-child(1){animation-delay:0.1s}
+.page-hero-inner>*:nth-child(2){animation-delay:0.25s}
+.page-hero-inner>*:nth-child(3){animation-delay:0.4s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="120" height="auto">
+      <path fill="#FFFFFF" d="M34.3,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4C3,50,0.8,44.8,0.8,38.8c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9H34.3V57.4z M14.6,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C19.6,27.4,16.9,28.5,14.6,30.7z M55.1,57.1c-3-2.6-4.5-5.8-4.5-9.7h10.1c0,1.3,0.7,2.1,2,2.7c0.7,0.3,1.3,0.4,2,0.4c1.3,0,2.3-0.2,3.1-0.6c0.8-0.4,1.3-1,1.3-1.8c0-0.9-0.2-1.6-0.7-2c-0.7-0.7-2.1-1.2-4.3-1.5c-4.5-0.5-8-2.1-10.6-4.8c-2.2-2.4-3.4-5.3-3.4-8.4c0-3.8,1.3-7.1,3.7-9.9c2.7-3.1,6.2-4.7,10.6-4.7c4.4,0,8,1.4,10.7,4.2c2.8,2.8,4.2,6.4,4.2,10.7H69.4c0-3.2-1.6-4.7-4.8-4.7c-2.8,0-4.2,1.4-4.2,4.3c0,1.8,1.7,2.8,5,3.3c5.4,0.6,9.2,2.5,11.5,5.6c1.6,2.1,2.4,4.7,2.4,7.8c0,3.6-1.4,6.6-4.3,9c-2.9,2.3-6.3,3.5-10.3,3.5C61,60.7,57.8,59.5,55.1,57.1z M98.4,58.9c-2.5-1.1-4.8-2.6-6.8-4.5c-2-2-3.6-4.3-4.7-6.9c-1.2-2.7-1.8-5.5-1.8-8.5c-0.1-2.8,0.4-5.5,1.4-8.1l0.3-0.6c1.1-2.6,2.6-4.8,4.5-6.8c2.1-2.1,4.3-3.6,6.9-4.7c2.7-1.2,5.6-1.8,8.5-1.8c2.9-0.1,5.7,0.5,8.3,1.5l0.4,0.2c2.6,1.1,4.8,2.6,6.7,4.6c2,2,3.6,4.3,4.7,6.9c1.4,3.2,2,7.7,1.8,13.6l-32,0.2c0.6,1.1,1.3,2,2.1,2.9c1.1,1,2.2,1.8,3.5,2.4l0.4,0.2c1.4,0.5,2.8,0.7,4.2,0.8c1.5,0,3-0.3,4.4-0.9c1.3-0.6,2.6-1.5,3.6-2.5l7.4,7.3c-2,2-4.3,3.6-6.9,4.7c-2.7,1.2-5.5,1.8-8.5,1.8c-2.8,0.1-5.5-0.4-8.1-1.4L98.4,58.9z M111.1,28.1c-1.3-0.5-2.8-0.8-4.3-0.8c-1.6,0-3.1,0.3-4.5,0.9c-1.3,0.7-2.5,1.5-3.5,2.5c-0.9,0.9-1.6,1.9-2.1,2.9l20.4-0.1c-0.6-1.1-1.2-2-2.1-2.9c-1.1-1.1-2.3-1.9-3.7-2.5L111.1,28.1z M178.4,38.8c0,6-2.1,11.2-6.5,15.4c-4.2,4.3-9.4,6.4-15.4,6.4c-6,0-11.2-2.1-15.5-6.4c-4.3-4.3-6.4-9.4-6.4-15.4c0-6,2.1-11.2,6.4-15.4c4.3-4.3,9.4-6.5,15.5-6.5c4.3,0,8.1,1.1,11.6,3.3V1h10.3V38.8z M156.5,27.3c-3.2,0-5.9,1.1-8.1,3.4c-2.2,2.2-3.4,5-3.4,8.1c0,3.1,1.1,5.8,3.4,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.3-5,3.3-8.1c0-3.2-1.1-5.9-3.3-8.1C162.4,28.4,159.7,27.3,156.5,27.3z M217.4,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4c-4.3-4.3-6.5-9.4-6.5-15.4c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9h-10.3V57.4z M197.7,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C202.7,27.4,200,28.5,197.7,30.7z"/>
+      <circle fill="#FF8C00" cx="248" cy="55" r="7"/>
+    </svg>
+    <span class="nav-logo-sub">Beyond Infrastructure</span>
+  </div>
+  <div class="nav-links">
+    <a href="#" >Home</a>
+    <a href="#" >About</a>
+    <a href="#" class="active">Services</a>
+    <a href="#" >Projects</a>
+    <a href="#" >SHEQ</a>
+    <a href="#" >Transformation</a>
+    <a href="#" >Insights</a>
+    <a href="#" >Careers</a>
+    <a href="#" class="nav-cta">Contact Us</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#" >Home</a>
+  <a href="#" >About</a>
+  <a href="#" class="active">Services</a>
+  <a href="#" >Projects</a>
+  <a href="#" >Transformation</a>
+  <a href="#" >Insights</a>
+  <a href="#" >Careers</a>
+  <a href="#" class="nav-cta-mobile">Contact Us</a>
+</div>
+<script>
+function toggleMenu(btn){
+  btn.classList.toggle('open');
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+</script>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="#">Home</a>
+      <span>›</span>
+      <span class="breadcrumb-current">Services</span>
+    </div>
+    <h1>Engineering<br>the <em>Built</em><br>Environment.</h1>
+    <p class="page-hero-sub">Six integrated service lines that take a project from nature's potential to a functional, built reality — anchored in Unbendable Quality and driven by a commitment to shared success.</p>
+  </div>
+  <div class="hero-deco">
+    <div class="deco-l" style="width:120px"></div>
+    <div class="deco-l" style="width:60px"></div>
+    <div class="deco-l" style="width:160px"></div>
+    <div class="deco-l" style="width:80px"></div>
+  </div>
+</section>
+
+<!-- SERVICE NAV TABS -->
+<div class="svc-nav">
+  <a href="#civil" class="svc-nav-item active"><span class="svc-nav-num">01</span> Civil & Structural</a>
+  <a href="#water" class="svc-nav-item"><span class="svc-nav-num">02</span> Water & Sanitation</a>
+  <a href="#roads" class="svc-nav-item"><span class="svc-nav-num">03</span> Roads & Transport</a>
+  <a href="#pm" class="svc-nav-item"><span class="svc-nav-num">04</span> Project Management</a>
+  <a href="#energy" class="svc-nav-item"><span class="svc-nav-num">05</span> Energy Solutions</a>
+  <a href="#advisory" class="svc-nav-item"><span class="svc-nav-num">06</span> Advisory</a>
+</div>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="intro-left">
+    <div class="sec-label">Our Approach</div>
+    <h2>Full-spectrum delivery.<br><em>From first study<br>to final handover.</em></h2>
+    <p class="body-lg">At Aseda, our service lines are not siloed — they are deeply integrated. Every project we touch benefits from the combined intelligence of six disciplines working in concert, ensuring that technical precision is always matched by commercial sustainability and social responsibility.</p>
+  </div>
+  <div class="intro-right">
+    <div class="intro-stat"><div class="intro-stat-num">6</div><div class="intro-stat-label">Integrated service lines</div></div>
+    <div class="intro-stat"><div class="intro-stat-num">21yrs</div><div class="intro-stat-label">Delivery experience</div></div>
+    <div class="intro-stat"><div class="intro-stat-num">R3.5B+</div><div class="intro-stat-label">Combined portfolio value</div></div>
+    <div class="intro-stat"><div class="intro-stat-num">ISO</div><div class="intro-stat-label">9001:2015 certified QMS</div></div>
+  </div>
+</div>
+
+<!-- OVERVIEW CARDS -->
+<section class="svc-overview">
+  <div style="padding-top:64px">
+    <div class="sec-label">All Services</div>
+    <h2 style="max-width:480px">What We Deliver</h2>
+  </div>
+  <div class="svc-grid">
+
+    <!-- 01 Civil -->
+    <a href="#civil" class="svc-card">
+      <div class="svc-card-num">01</div>
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="18"/><rect x="13" y="8" width="8" height="13"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
+      </div>
+      <h3>Civil & Structural Engineering</h3>
+      <p>World-class design and implementation for the physical and natural built environment — from bulk earthworks to high-rise commercial developments.</p>
+      <div class="svc-card-tags">
+        <span class="svc-card-tag">Bulk infrastructure & earthworks</span>
+        <span class="svc-card-tag">High-rise & industrial structures</span>
+        <span class="svc-card-tag">Township & urban development</span>
+      </div>
+      <div class="svc-card-arrow">↗</div>
+    </a>
+
+    <!-- 02 Water -->
+    <a href="#water" class="svc-card">
+      <div class="svc-card-num">02</div>
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2C12 2 5 9 5 14a7 7 0 0014 0c0-5-7-12-7-12z"/></svg>
+      </div>
+      <h3>Water & Sanitation Infrastructure</h3>
+      <p>Recognising water as a primary lever for human dignity, we engineer solutions that protect and provide this critical resource for communities across South Africa.</p>
+      <div class="svc-card-tags">
+        <span class="svc-card-tag">Bulk water supply & reservoirs</span>
+        <span class="svc-card-tag">Wastewater treatment plants</span>
+        <span class="svc-card-tag">Hydrological modelling</span>
+      </div>
+      <div class="svc-card-arrow">↗</div>
+    </a>
+
+    <!-- 03 Roads -->
+    <a href="#roads" class="svc-card">
+      <div class="svc-card-num">03</div>
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><path d="M5 6l7-4 7 4"/><path d="M5 18l7 4 7-4"/><line x1="5" y1="6" x2="5" y2="18"/><line x1="19" y1="6" x2="19" y2="18"/></svg>
+      </div>
+      <h3>Roads & Transport</h3>
+      <p>Thinking differently about roads so they represent not just movement of people and goods, but movement of economies — from network maintenance to capital upgrades.</p>
+      <div class="svc-card-tags">
+        <span class="svc-card-tag">Network management & maintenance</span>
+        <span class="svc-card-tag">Road upgrades & rehabilitation</span>
+        <span class="svc-card-tag">Planning, design & supervision</span>
+      </div>
+      <div class="svc-card-arrow">↗</div>
+    </a>
+
+    <!-- 04 PM -->
+    <a href="#pm" class="svc-card">
+      <div class="svc-card-num">04</div>
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/></svg>
+      </div>
+      <h3>Project & Construction Management</h3>
+      <p>Professional oversight driven by Unbendable Quality — ensuring technical precision is matched by commercial sustainability and rigorous timeline compliance on every site.</p>
+      <div class="svc-card-tags">
+        <span class="svc-card-tag">End-to-end programme management</span>
+        <span class="svc-card-tag">Cost control & contract administration</span>
+        <span class="svc-card-tag">SACPCMP & ISO 9001 compliance</span>
+      </div>
+      <div class="svc-card-arrow">↗</div>
+    </a>
+
+    <!-- 05 Energy -->
+    <a href="#energy" class="svc-card">
+      <div class="svc-card-num">05</div>
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <h3>Energy Solutions & Business Continuity</h3>
+      <p>Via Aseda Energy — a Black woman-owned entity — we bridge the gap between technical power requirements and sustainable energy transition for a power-constrained world.</p>
+      <div class="svc-card-tags">
+        <span class="svc-card-tag">Solar PV & BESS design and EPCM</span>
+        <span class="svc-card-tag">Energy audits & management</span>
+        <span class="svc-card-tag">Grid stabilisation advisory</span>
+      </div>
+      <div class="svc-card-arrow">↗</div>
+    </a>
+
+    <!-- 06 Advisory -->
+    <a href="#advisory" class="svc-card">
+      <div class="svc-card-num">06</div>
+      <div class="svc-card-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3>Investments & Strategic Advisory</h3>
+      <p>The bridge between technical ambition and commercial reality — ensuring complex projects are not only technically sound but commercially robust and bankable.</p>
+      <div class="svc-card-tags">
+        <span class="svc-card-tag">Project bankability & due diligence</span>
+        <span class="svc-card-tag">Public-private partnership structuring</span>
+        <span class="svc-card-tag">Asset lifecycle optimisation</span>
+      </div>
+      <div class="svc-card-arrow">↗</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── 01 CIVIL ── -->
+<section class="svc-section" id="civil">
+  <div class="svc-section-inner">
+    <div class="svc-section-left">
+      <div class="svc-section-tag">
+        <div class="svc-section-tag-num">01</div>
+        <div class="svc-section-tag-label">Civil & Structural Engineering</div>
+      </div>
+      <h2>Engineering the<br><em>Foundation</em> of<br>Built Africa.</h2>
+      <div class="svc-section-sub">The cornerstone of Aseda's 21-year legacy — comprehensive design and implementation for the physical and natural built environment.</div>
+      <p class="body-sm">From high-rise commercial towers to bulk earthworks, our civil and structural workstream delivers technically rigorous, commercially viable solutions across every sector of the built environment. Our approach combines world-class engineering expertise with deep knowledge of the South African and Pan-African context.</p>
+      <a href="#" class="svc-cta-btn">View Civil & Structural Projects →</a>
+    </div>
+    <div class="svc-section-right">
+      <div class="svc-deliverables">
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Bulk Infrastructure</div><div class="del-desc">Design and management of large-scale earthworks, roads, and transport systems for major development programmes.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Structural Engineering</div><div class="del-desc">Specialised engineering for high-rise commercial developments, industrial plants, and residential clusters — including structural assessments and refurbishments.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Urban Development</div><div class="del-desc">Strategic planning for township establishment and integrated urban renewals, from concept through to construction supervision.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Mining EPCM</div><div class="del-desc">Engineering, Procurement, and Construction Management services for mining infrastructure across the continent.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Education & Health Infrastructure</div><div class="del-desc">Specialised design for schools, hospitals, and civic facilities — including accessible and inclusive design for specialised needs.</div></div></div>
+      </div>
+      <div class="svc-highlight">
+        <div class="svc-highlight-label">Track Record Highlight</div>
+        <div class="svc-highlight-text">R260M UIF Head Office refurbishment (Pretoria) · $190M Ghana Cocobod Head Office · R188M Khutsong TB Hospital · R103M Leeuwdoringstad School of the Deaf</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 02 WATER ── -->
+<section class="svc-section" id="water">
+  <div class="svc-section-inner">
+    <div class="svc-section-left">
+      <div class="svc-section-tag">
+        <div class="svc-section-tag-num">02</div>
+        <div class="svc-section-tag-label">Water & Sanitation Infrastructure</div>
+      </div>
+      <h2>Water is a<br><em>Human Right.</em><br>We Engineer It.</h2>
+      <div class="svc-section-sub">Recognising water as a primary lever for human dignity, we deliver engineering solutions that protect and provide this critical resource.</div>
+      <p class="body-sm">Our water and sanitation practice addresses the full spectrum of infrastructure needs — from bulk supply schemes serving entire districts to wastewater rehabilitation critical to environmental protection. We bring rigorous engineering to some of South Africa's most pressing infrastructure backlogs.</p>
+      <a href="#" class="svc-cta-btn">View Water & Sanitation Projects →</a>
+    </div>
+    <div class="svc-section-right">
+      <div class="svc-deliverables">
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Bulk Water Supply</div><div class="del-desc">Planning and design of reservoirs, pump stations, rising mains, and bulk pipelines for district-scale water provision programmes.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Wastewater Treatment</div><div class="del-desc">Engineering of modern treatment plants, sludge lagoon rehabilitation, and WWTP upgrades aligned to environmental sustainability standards.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Hydrological Modelling</div><div class="del-desc">Precision analysis for stormwater management, flood-line determination, and catchment-level water resource assessment.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Water Conservation</div><div class="del-desc">Non-revenue water reduction programmes, infrastructure retrofitting, and demand management for metropolitan municipalities.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Sewer & Sanitation Networks</div><div class="del-desc">Design, rehabilitation, and capacity upgrades of sewer reticulation networks to prevent environmental contamination and accommodate urban growth.</div></div></div>
+      </div>
+      <div class="svc-highlight">
+        <div class="svc-highlight-label">Track Record Highlight</div>
+        <div class="svc-highlight-text">R350M Magalies WWTP Upgrade · R190M Chris Hani District Municipality Water Supply · R85M Tsakane "War on Leaks" · R52M Steynsrus Water Supply Scheme</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 03 ROADS ── -->
+<section class="svc-section" id="roads">
+  <div class="svc-section-inner">
+    <div class="svc-section-left">
+      <div class="svc-section-tag">
+        <div class="svc-section-tag-num">03</div>
+        <div class="svc-section-tag-label">Roads & Transport</div>
+      </div>
+      <h2>Roads That Move<br><em>More Than</em><br>Traffic.</h2>
+      <div class="svc-section-sub">Thinking differently about roads and transport so they represent not just movement of people and goods, but movement of economies.</div>
+      <p class="body-sm">From multi-billion rand provincial road maintenance programmes to the planning and design of rural connector roads, our roads and transport practice covers the full infrastructure lifecycle. We combine technical rigour with a deep understanding of the socioeconomic impact of transport infrastructure.</p>
+      <a href="#" class="svc-cta-btn">View Roads & Transport Projects →</a>
+    </div>
+    <div class="svc-section-right">
+      <div class="svc-deliverables">
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Network Management & Maintenance</div><div class="del-desc">Comprehensive management and execution of routine maintenance for RISFSA-classified provincial roads, ensuring safety and longevity of critical economic arteries.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Road Upgrades & Rehabilitation</div><div class="del-desc">End-to-end planning, design, and supervision for the upgrade and structural rehabilitation of strategic road corridors.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Rural Road Infrastructure</div><div class="del-desc">Planning, design, and construction supervision of rural connector roads improving inter-provincial access and community connectivity.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Stormwater & Drainage</div><div class="del-desc">Construction and rehabilitation of internal road stormwater systems improving accessibility and flood resilience for communities.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Community & Youth Development</div><div class="del-desc">Community-based road maintenance programmes integrating accredited skills development and youth employment — turning service delivery into social impact.</div></div></div>
+      </div>
+      <div class="svc-highlight">
+        <div class="svc-highlight-label">Track Record Highlight</div>
+        <div class="svc-highlight-text">R1.2B National Youth Service Itirele Programme · R567M Gauteng Provincial Roads (Joburg Region) · R467M Gauteng Provincial Roads (Benoni Region) · R205M P887/1 Upgrade</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 PROJECT MANAGEMENT ── -->
+<section class="svc-section" id="pm">
+  <div class="svc-section-inner">
+    <div class="svc-section-left">
+      <div class="svc-section-tag">
+        <div class="svc-section-tag-num">04</div>
+        <div class="svc-section-tag-label">Project & Construction Management</div>
+      </div>
+      <h2>Surgical Precision.<br><em>From Inception</em><br>to Close-Out.</h2>
+      <div class="svc-section-sub">Professional oversight ensuring that technical precision is always matched by commercial sustainability and rigorous timeline compliance.</div>
+      <p class="body-sm">Aseda acts as the technical and administrative anchor on complex infrastructure programmes — providing the rigorous oversight that clients, investors, and communities depend on. Our project management practice is underpinned by SACPCMP registration and ISO 9001:2015 certification.</p>
+      <a href="#" class="svc-cta-btn">View Project Management Work →</a>
+    </div>
+    <div class="svc-section-right">
+      <div class="svc-deliverables">
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Strategic Oversight</div><div class="del-desc">We act as the technical and administrative anchor, ensuring project lifecycles are managed with surgical precision from inception to close-out.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Commercial Stewardship</div><div class="del-desc">Rigorous cost control, contract administration, and financial reporting — safeguarding the capital invested and ensuring commercial sustainability.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Quality & Compliance</div><div class="del-desc">Strict adherence to SACPCMP and ISO 9001 standards — ensuring Unbendable Quality is not just a goal, but a documented reality on every site.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Risk Mitigation</div><div class="del-desc">Proactive identification and management of regulatory, environmental, and technical complexities to ensure uninterrupted business continuity.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Stakeholder Management</div><div class="del-desc">Structured engagement with clients, communities, regulators, and contractors — maintaining transparency and accountability throughout the project lifecycle.</div></div></div>
+      </div>
+      <div class="svc-highlight">
+        <div class="svc-highlight-label">Professional Accreditation</div>
+        <div class="svc-highlight-text">SACPCMP registered · ISO 9001:2015 SABS-accredited QMS · ECSA registered professionals · CESA member firm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 ENERGY ── -->
+<section class="svc-section" id="energy">
+  <div class="svc-section-inner">
+    <div class="svc-section-left">
+      <div class="svc-section-tag">
+        <div class="svc-section-tag-num">05</div>
+        <div class="svc-section-tag-label">Energy Solutions & Business Continuity</div>
+      </div>
+      <h2>Power for a<br><em>Constrained</em><br>Continent.</h2>
+      <div class="svc-section-sub">Bridging the gap between technical power requirements and sustainable energy transition — delivered through Aseda Energy.</div>
+      <p class="body-sm">South Africa's energy landscape demands more than conventional solutions. Through Aseda Energy, we bring specialist renewable energy expertise to industrial, commercial, and infrastructure clients — ensuring business continuity while accelerating the transition to sustainable power.</p>
+      <a href="#" class="svc-cta-btn">Enquire About Energy Solutions →</a>
+    </div>
+    <div class="svc-section-right">
+      <div class="entity-callout">
+        <div class="entity-badge">Aseda Energy</div>
+        <div class="entity-text"><strong>A Black woman-owned entity</strong> — Aseda Energy is our dedicated renewable energy vehicle, combining specialist power engineering expertise with our broader infrastructure delivery capability.</div>
+      </div>
+      <div class="svc-deliverables">
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Renewable Integration</div><div class="del-desc">Design and EPCM services for solar PV arrays and Battery Energy Storage Systems (BESS) — from feasibility through to commissioning.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Energy Audits & Management</div><div class="del-desc">Optimising industrial and commercial power consumption to reduce costs and ensure business continuity in load-constrained environments.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Grid Stabilisation</div><div class="del-desc">Technical advisory on integrating decentralised power sources into existing infrastructure — balancing grid reliability with renewable input.</div></div></div>
+        <div class="deliverable"><span class="del-dot"></span><div class="del-content"><div class="del-title">Business Continuity Planning</div><div class="del-desc">Comprehensive power resilience strategies for clients whose operations cannot tolerate supply interruptions.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 ADVISORY ── -->
+<section class="svc-section" id="advisory">
+  <div class="svc-section-inner">
+    <div class="svc-section-left">
+      <div class="svc-section-tag">
+        <div class="svc-section-tag-num">06</div>
+        <div class="svc-section-tag-label">Investments & Strategic Advisory</div>
+      </div>
+      <h2>Where Technical<br>Ambition Meets<br><em>Commercial Reality.</em></h2>
+      <div class="svc-section-sub">Infrastructure is only as viable as the capital strategy that underpins it. Our Advisory division is the critical link between engineering potential and investment success.</div>
+      <p class="body-sm">We ensure that complex projects are not only technically sound but commercially robust and resilient against long-term market shifts. From first feasibility to final bankability, we provide the strategic intelligence that unlocks funding and de-risks delivery.</p>
+      <a href="#" class="svc-cta-btn">Talk to Our Advisory Team →</a>
+    </div>
+    <div class="svc-section-right">
+      <div class="advisory-grid">
+        <div class="advisory-item">
+          <div class="advisory-item-num">01</div>
+          <div class="advisory-item-title">Project Bankability & Due Diligence</div>
+          <div class="advisory-item-desc">Rigorous technical and financial stress-testing required to unlock funding. Our reports provide the certainty demanded by institutional investors and Development Finance Institutions (DFIs).</div>
+        </div>
+        <div class="advisory-item">
+          <div class="advisory-item-num">02</div>
+          <div class="advisory-item-title">Public-Private Partnerships (PPP)</div>
+          <div class="advisory-item-desc">Structuring robust agreements that align public sector mandates with private sector efficiency. We navigate the delicate interface of risk and reward to ensure delivery.</div>
+        </div>
+        <div class="advisory-item">
+          <div class="advisory-item-num">03</div>
+          <div class="advisory-item-title">Asset Lifecycle Optimisation</div>
+          <div class="advisory-item-desc">Moving beyond construction, we model the total cost of ownership — ensuring Unbendable Quality translates into lower operational costs and higher asset value over the project lifespan.</div>
+        </div>
+        <div class="advisory-item">
+          <div class="advisory-item-num">04</div>
+          <div class="advisory-item-title">Strategic Risk Navigation</div>
+          <div class="advisory-item-desc">Decoding the regulatory, environmental, and political complexities of the African market — providing clients with a clear roadmap for business continuity and compliance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CROSS-SELL -->
+<section class="crosssell">
+  <div class="sec-label">Explore Further</div>
+  <h2>See Our Services<br><em>In Action</em></h2>
+  <div class="crosssell-grid">
+    <a href="#" class="crosssell-item"><div class="crosssell-item-left"><div class="crosssell-item-num">R3.5B+</div><div class="crosssell-item-name">Strategic Projects Portfolio</div></div><span class="crosssell-item-arrow">↗</span></a>
+    <a href="#" class="crosssell-item"><div class="crosssell-item-left"><div class="crosssell-item-num">21yrs</div><div class="crosssell-item-name">About Aseda & Our Story</div></div><span class="crosssell-item-arrow">↗</span></a>
+    <a href="#" class="crosssell-item"><div class="crosssell-item-left"><div class="crosssell-item-num">Lv.1</div><div class="crosssell-item-name">Transformation & Social Impact</div></div><span class="crosssell-item-arrow">↗</span></a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div>
+    <h2>Let's deliver your<br>next project together.</h2>
+    <p>Speak to our team about your infrastructure challenge.</p>
+  </div>
+  <div class="cta-strip-actions">
+    <a href="#" class="btn-navy">Get In Touch</a>
+    <a href="#" class="btn-outline-navy">View Projects</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="110" height="auto">
+        <path fill="#FFFFFF" d="M34.3,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4C3,50,0.8,44.8,0.8,38.8c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9H34.3V57.4z M14.6,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C19.6,27.4,16.9,28.5,14.6,30.7z M55.1,57.1c-3-2.6-4.5-5.8-4.5-9.7h10.1c0,1.3,0.7,2.1,2,2.7c0.7,0.3,1.3,0.4,2,0.4c1.3,0,2.3-0.2,3.1-0.6c0.8-0.4,1.3-1,1.3-1.8c0-0.9-0.2-1.6-0.7-2c-0.7-0.7-2.1-1.2-4.3-1.5c-4.5-0.5-8-2.1-10.6-4.8c-2.2-2.4-3.4-5.3-3.4-8.4c0-3.8,1.3-7.1,3.7-9.9c2.7-3.1,6.2-4.7,10.6-4.7c4.4,0,8,1.4,10.7,4.2c2.8,2.8,4.2,6.4,4.2,10.7H69.4c0-3.2-1.6-4.7-4.8-4.7c-2.8,0-4.2,1.4-4.2,4.3c0,1.8,1.7,2.8,5,3.3c5.4,0.6,9.2,2.5,11.5,5.6c1.6,2.1,2.4,4.7,2.4,7.8c0,3.6-1.4,6.6-4.3,9c-2.9,2.3-6.3,3.5-10.3,3.5C61,60.7,57.8,59.5,55.1,57.1z M98.4,58.9c-2.5-1.1-4.8-2.6-6.8-4.5c-2-2-3.6-4.3-4.7-6.9c-1.2-2.7-1.8-5.5-1.8-8.5c-0.1-2.8,0.4-5.5,1.4-8.1l0.3-0.6c1.1-2.6,2.6-4.8,4.5-6.8c2.1-2.1,4.3-3.6,6.9-4.7c2.7-1.2,5.6-1.8,8.5-1.8c2.9-0.1,5.7,0.5,8.3,1.5l0.4,0.2c2.6,1.1,4.8,2.6,6.7,4.6c2,2,3.6,4.3,4.7,6.9c1.4,3.2,2,7.7,1.8,13.6l-32,0.2c0.6,1.1,1.3,2,2.1,2.9c1.1,1,2.2,1.8,3.5,2.4l0.4,0.2c1.4,0.5,2.8,0.7,4.2,0.8c1.5,0,3-0.3,4.4-0.9c1.3-0.6,2.6-1.5,3.6-2.5l7.4,7.3c-2,2-4.3,3.6-6.9,4.7c-2.7,1.2-5.5,1.8-8.5,1.8c-2.8,0.1-5.5-0.4-8.1-1.4L98.4,58.9z M111.1,28.1c-1.3-0.5-2.8-0.8-4.3-0.8c-1.6,0-3.1,0.3-4.5,0.9c-1.3,0.7-2.5,1.5-3.5,2.5c-0.9,0.9-1.6,1.9-2.1,2.9l20.4-0.1c-0.6-1.1-1.2-2-2.1-2.9c-1.1-1.1-2.3-1.9-3.7-2.5L111.1,28.1z M178.4,38.8c0,6-2.1,11.2-6.5,15.4c-4.2,4.3-9.4,6.4-15.4,6.4c-6,0-11.2-2.1-15.5-6.4c-4.3-4.3-6.4-9.4-6.4-15.4c0-6,2.1-11.2,6.4-15.4c4.3-4.3,9.4-6.5,15.5-6.5c4.3,0,8.1,1.1,11.6,3.3V1h10.3V38.8z M156.5,27.3c-3.2,0-5.9,1.1-8.1,3.4c-2.2,2.2-3.4,5-3.4,8.1c0,3.1,1.1,5.8,3.4,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.3-5,3.3-8.1c0-3.2-1.1-5.9-3.3-8.1C162.4,28.4,159.7,27.3,156.5,27.3z M217.4,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4c-4.3-4.3-6.5-9.4-6.5-15.4c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9h-10.3V57.4z M197.7,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C202.7,27.4,200,28.5,197.7,30.7z"/>
+        <circle fill="#FF8C00" cx="248" cy="55" r="7"/>
+      </svg>
+      <span class="footer-logo-sub">Beyond Infrastructure</span>
+      <p class="footer-desc">A premier infrastructure delivery and advisory firm serving investors, governments, and developers across Africa since 2005.</p>
+      <div class="footer-social">
+        <a class="s-icon" href="#">in</a>
+        <a class="s-icon" href="#">fb</a>
+        <a class="s-icon" href="#">tw</a>
+        <a class="s-icon" href="#">ig</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>About</h4><div class="footer-links"><a href="#">Our Story</a><a href="#">The Aseda Way</a><a href="#">Leadership</a><a href="#">SHEQ Standards</a><a href="#">Governance</a></div></div>
+    <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="#">Civil & Structural</a><a href="#">Water & Sanitation</a><a href="#">Roads & Transport</a><a href="#">Energy Solutions</a><a href="#">Advisory</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="#">Projects</a><a href="#">News & Insights</a><a href="#">Social Impact</a><a href="#">Careers</a><a href="#">Contact</a></div></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© Aseda 2026. All Rights Reserved.</span>
+    <span class="footer-reg">Reg: 2005/019873/07 · VAT: 4640221281 · Level 1 B-BBEE</span>
+  </div>
+</footer>
+
+</body>
+</html>

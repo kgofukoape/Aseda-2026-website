@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transformation & Social Impact – Aseda | Beyond Infrastructure</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#002D54;
+  --navy-mid:#003d70;
+  --navy-light:#004d8a;
+  --orange:#FF8C00;
+  --orange-light:#ffaa40;
+  --white:#FFFFFF;
+  --grey:#E5E5E5;
+  --border:#003d70;
+  --text-body:rgba(255,255,255,0.65);
+  --text-muted:rgba(255,255,255,0.4);
+}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,45,84,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,140,0,0.2)}
+.nav-logo{display:flex;flex-direction:column}
+.nav-logo-sub{font-size:9px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;font-weight:500;margin-top:3px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.7);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--orange)}
+.nav-cta{background:var(--orange);color:var(--white)!important;padding:10px 22px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:all 0.3s}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.nav-mobile{display:none;position:fixed;top:73px;left:0;right:0;background:rgba(0,45,84,0.98);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,140,0,0.2);padding:20px 24px 32px;flex-direction:column;gap:0;z-index:99}
+.nav-mobile.open{display:flex}
+.nav-mobile a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;padding:16px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:color 0.2s}
+.nav-mobile a:last-child{border-bottom:none}
+.nav-mobile a:hover,.nav-mobile a.active{color:var(--orange)}
+.nav-mobile .nav-cta-mobile{background:var(--orange);color:var(--white)!important;padding:16px 24px;text-align:center;margin-top:16px;border-bottom:none;font-weight:600;letter-spacing:1.5px}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:1024px){
+  nav{padding:16px 32px}
+  .nav-links{gap:20px}
+  .nav-links a{font-size:11px}
+}
+@media(max-width:768px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  /* page hero */
+  .page-hero{padding:60px 24px 48px}
+  .page-hero h1,h1{font-size:52px!important}
+  .page-hero-sub{font-size:15px}
+  /* hero */
+  .hero{min-height:auto}
+  .hero-left{padding:100px 24px 60px}
+  .hero-left h1{font-size:56px}
+  /* stats / strips */
+  .stats,.port-stats,.impact-strip{grid-template-columns:1fr 1fr!important;padding:0}
+  .stat-item,.p-stat,.impact-num{padding:24px 20px;border-right:none;border-bottom:1px solid rgba(255,255,255,0.06)}
+  /* 2-col grids -> 1-col */
+  .section-inner,.philosophy-inner,.bbee-inner,.result-inner,.intro-strip,.value-inner,.csi-inner,
+  .itirele-section,.transform,.featured-inner,.cta-strip{grid-template-columns:1fr!important;gap:0}
+  .itirele-section{display:flex;flex-direction:column}
+  .itirele-img{min-height:280px}
+  /* 3-col grids -> 1-col */
+  .services-grid,.svc-grid,.way-pillars,.pillars-grid,.pillars-grid-bottom,.leadership-grid,
+  .accred-grid,.locations-grid,.loc-grid,.footer-top,.gov-grid,.compliance-grid,
+  .founding-grid,.advisory-grid,.crosssell-grid{grid-template-columns:1fr!important}
+  /* projects grid -> 1-col */
+  .proj-grid,.projects-grid{grid-template-columns:1fr!important}
+  /* hero badges row */
+  .hero-badges{grid-template-columns:1fr 1fr;display:grid;gap:1px}
+  /* featured project */
+  .featured-inner{display:flex;flex-direction:column}
+  .featured-img{min-height:260px}
+  /* value right */
+  .value-right{grid-template-columns:1fr 1fr!important}
+  /* photo strip */
+  .photo-strip{grid-template-columns:1fr 1fr!important}
+  /* clients */
+  .clients-grid{grid-template-columns:1fr 1fr!important}
+  /* cta strip */
+  .cta-strip{padding:48px 24px;text-align:center}
+  .cta-strip h2{font-size:36px!important}
+  .cta-actions,.cta-strip-actions{flex-direction:column;align-items:center;width:100%}
+  .btn-navy,.btn-outline-navy,.btn-primary,.btn-ghost{width:100%;text-align:center;box-sizing:border-box}
+  /* sections padding */
+  .section,.about,.services,.projects-section,.leadership-section,.gov-section,
+  .accred-section,.philosophy,.bbee-section,.pillars-section,.result-section,
+  .csi-statement,.value-section,.clients-section,.crosssell,.featured-project,
+  .svc-overview,.svc-section,.intro-strip,.way-section,.itirele-content{padding:60px 24px!important}
+  .svc-nav,.filter-bar{padding:0 16px}
+  .filter-sort{display:none}
+  /* footer */
+  footer{padding:48px 24px 24px}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+  /* statutory */
+  .statutory{grid-template-columns:1fr 1fr!important;padding:24px}
+  /* section headers */
+  .section-header{flex-direction:column;align-items:flex-start;gap:16px}
+  /* hero deco hide */
+  .hero-deco,.hero-scroll{display:none}
+  /* hero badges */
+  .hero-badges{margin-top:32px}
+  /* bbee badge */
+  .bbee-badge-large{flex-direction:column;gap:12px;text-align:center}
+  /* pillar card padding */
+  .pillar-card,.svc-card,.phil-card,.exec-card,.gov-card,.compliance-card,
+  .loc,.location-card,.accred-card,.proj-card{padding:32px 24px}
+  /* h2 sizes */
+  h2{font-size:36px!important}
+  .about-headline,.transform-headline{font-size:36px!important}
+  /* intro strip right grid */
+  .intro-right{grid-template-columns:1fr 1fr!important}
+  /* itirele targets */
+  .itirele-targets{padding-top:24px}
+  /* svc section inner */
+  .svc-section-inner{grid-template-columns:1fr!important}
+}
+@media(max-width:480px){
+  .page-hero h1,h1{font-size:40px!important}
+  h2{font-size:30px!important}
+  .hero-left h1{font-size:44px!important}
+  .impact-big,.stat-num,.p-stat-num{font-size:44px!important}
+  .stats,.port-stats,.impact-strip{grid-template-columns:1fr!important}
+  .photo-strip{grid-template-columns:1fr!important}
+  .value-right{grid-template-columns:1fr!important}
+}
+
+/* ── HERO — full orange ── */
+.page-hero{padding:100px 60px 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--orange)}
+.breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:28px}
+.breadcrumb a{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(0,45,84,0.55);text-decoration:none;transition:color 0.2s}
+.breadcrumb a:hover{color:var(--navy)}
+.breadcrumb span{color:rgba(0,45,84,0.3);font-size:11px}
+.breadcrumb-current{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--navy);font-weight:600}
+.page-hero-inner{max-width:800px;position:relative;z-index:2}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;line-height:1.0;margin-bottom:24px;color:var(--navy)}
+.page-hero h1 em{font-style:italic;color:var(--white)}
+.page-hero-sub{font-size:17px;line-height:1.85;color:rgba(0,45,84,0.75);font-weight:300;max-width:640px}
+.hero-deco{position:absolute;right:60px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;align-items:flex-end;opacity:0.2}
+.deco-l{height:1px;background:var(--navy)}
+
+/* ── IMPACT NUMBERS STRIP ── */
+.impact-strip{background:var(--navy);padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.impact-num{padding:48px 40px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.impact-num:last-child{border-right:none}
+.impact-num::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange)}
+.impact-big{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--white);line-height:1}
+.impact-big span{color:var(--orange)}
+.impact-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+.impact-sub{font-size:12px;color:var(--text-muted);font-weight:300;line-height:1.5;margin-top:4px}
+
+/* ── PHILOSOPHY SECTION ── */
+.philosophy{padding:100px 60px;border-bottom:1px solid var(--border)}
+.philosophy-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.sec-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:12px}
+h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1.15;margin-bottom:24px}
+h2 em{font-style:italic;color:var(--orange)}
+.body-lg{font-size:16px;line-height:1.9;color:var(--text-body);font-weight:300;margin-bottom:20px}
+.body-sm{font-size:14px;line-height:1.85;color:var(--text-body);font-weight:300;margin-bottom:16px}
+.philosophy-quote{background:var(--navy-mid);border-left:4px solid var(--orange);padding:36px 40px;margin-top:32px}
+.philosophy-quote p{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;font-style:italic;line-height:1.5;color:var(--white)}
+.philosophy-quote cite{display:block;margin-top:16px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-style:normal}
+.philosophy-right{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.phil-card{background:var(--navy);padding:36px 32px;position:relative;overflow:hidden;transition:background 0.2s}
+.phil-card:hover{background:var(--navy-mid)}
+.phil-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transition:transform 0.3s;transform-origin:bottom}
+.phil-card:hover::before{transform:scaleY(1)}
+.phil-icon{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(255,140,0,0.15);line-height:1;margin-bottom:12px}
+.phil-title{font-size:16px;font-weight:600;color:var(--white);margin-bottom:10px}
+.phil-desc{font-size:13px;line-height:1.75;color:var(--text-muted);font-weight:300}
+
+/* ── BBEE SECTION ── */
+.bbee-section{padding:100px 60px;border-bottom:1px solid var(--border);background:var(--navy-mid)}
+.bbee-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.bbee-left{}
+.bbee-badge-large{display:inline-flex;align-items:center;gap:24px;background:var(--orange);padding:28px 36px;margin-bottom:40px}
+.bbee-badge-level{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--navy);line-height:1}
+.bbee-badge-text{}
+.bbee-badge-title{font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy)}
+.bbee-badge-sub{font-size:12px;color:rgba(0,45,84,0.65);margin-top:4px;font-weight:400}
+.bbee-pillars{display:flex;flex-direction:column;gap:1px;background:var(--border)}
+.bbee-pillar{background:var(--navy);padding:20px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center}
+.bbee-pillar-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.bbee-pillar-name{font-size:13px;font-weight:500;color:var(--white)}
+.bbee-pillar-score{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--orange);font-weight:300}
+.bbee-right{display:flex;flex-direction:column;gap:28px}
+.ownership-highlight{background:var(--navy);border:1px solid rgba(255,140,0,0.3);padding:36px 32px}
+.ownership-highlight-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:16px}
+.ownership-stat{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:var(--white);line-height:1;margin-bottom:8px}
+.ownership-stat span{color:var(--orange)}
+.ownership-desc{font-size:13px;line-height:1.75;color:var(--text-muted);font-weight:300}
+.verifier-strip{background:rgba(255,140,0,0.08);border:1px solid rgba(255,140,0,0.2);padding:20px 24px;display:flex;align-items:center;gap:16px}
+.verifier-dot{width:10px;height:10px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.verifier-text{font-size:12px;color:var(--text-body);font-weight:300;line-height:1.6}
+.verifier-text strong{color:var(--white);font-weight:600}
+
+/* ── PILLARS SECTION ── */
+.pillars-section{padding:100px 60px;border-bottom:1px solid var(--border)}
+.pillars-header{margin-bottom:64px;max-width:560px}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-bottom:2px}
+.pillars-grid-bottom{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
+.pillar-card{background:var(--navy);padding:52px 44px;position:relative;overflow:hidden}
+.pillar-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.pillar-card:hover::after{transform:scaleX(1)}
+.pillar-card:hover{background:var(--navy-mid)}
+.pillar-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(255,140,0,0.07);line-height:1;margin-bottom:-12px}
+.pillar-icon-wrap{width:52px;height:52px;border:1px solid rgba(255,140,0,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.pillar-icon-wrap svg{width:22px;height:22px;stroke:var(--orange);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.pillar-card h3{font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;margin-bottom:14px;line-height:1.3;color:var(--white)}
+.pillar-card p{font-size:13px;line-height:1.8;color:var(--text-muted);font-weight:300}
+.pillar-result{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);font-size:12px;color:rgba(255,140,0,0.7);font-weight:500;letter-spacing:0.5px}
+
+/* ── ITIRELE SHOWCASE ── */
+.itirele-section{padding:0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr}
+.itirele-img{min-height:600px;background:var(--navy-mid);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+/* IMAGE PLACEHOLDER: Replace with aerial photo of Itirele programme — workers on road, hi-vis, NW landscape */
+.img-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;opacity:0.1}
+.img-ph-icon{font-size:64px}
+.img-ph-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-align:center;max-width:200px;line-height:1.6}
+.itirele-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,45,84,0.3),transparent)}
+.itirele-content{background:var(--orange);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between}
+.itirele-tag{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(0,45,84,0.55);font-weight:600;margin-bottom:20px}
+.itirele-content h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--navy);line-height:1.1;margin-bottom:24px}
+.itirele-content h2 em{font-style:italic}
+.itirele-content p{font-size:14px;line-height:1.9;color:rgba(0,45,84,0.75);font-weight:300;margin-bottom:40px}
+.itirele-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,45,84,0.2);margin-bottom:40px}
+.it-stat{background:rgba(0,45,84,0.08);padding:24px 20px}
+.it-stat-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--navy);line-height:1}
+.it-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,45,84,0.55);margin-top:4px}
+.itirele-targets{display:flex;flex-direction:column;gap:10px}
+.it-target{display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(0,45,84,0.75);font-weight:400}
+.it-target-bar{flex:1;height:3px;background:rgba(0,45,84,0.15);border-radius:2px;overflow:hidden}
+.it-target-fill{height:100%;background:var(--navy);border-radius:2px}
+.it-target-pct{font-size:13px;font-weight:600;color:var(--navy);min-width:36px;text-align:right}
+
+/* ── TRANSFORMATION RESULT ── */
+.result-section{padding:100px 60px;border-bottom:1px solid var(--border);background:var(--navy-mid)}
+.result-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.result-left{}
+.result-right{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+.result-stat{background:var(--navy);padding:36px 28px;display:flex;flex-direction:column;gap:8px}
+.result-stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1;color:var(--white)}
+.result-stat-num em{color:var(--orange);font-style:normal}
+.result-stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+.result-stat-desc{font-size:12px;line-height:1.6;color:var(--text-muted);font-weight:300;margin-top:4px}
+
+/* ── PHOTO STRIP ── */
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.photo-item{height:280px;background:var(--navy-mid);position:relative;overflow:hidden}
+/* IMAGE PLACEHOLDERs: Community/site photography, 400×280px each */
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,45,84,0.8),transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px}
+.photo-caption{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);font-weight:500}
+.photo-placeholder-inner{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;opacity:0.1}
+.photo-placeholder-inner span{font-size:40px}
+.photo-placeholder-inner p{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-align:center;max-width:120px;line-height:1.5}
+
+/* ── CSI STATEMENT ── */
+.csi-statement{padding:100px 60px;border-bottom:1px solid var(--border)}
+.csi-inner{display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start}
+.csi-label-col{position:sticky;top:100px}
+.csi-num{font-family:'Cormorant Garamond',serif;font-size:100px;font-weight:300;color:rgba(255,140,0,0.06);line-height:1;margin-bottom:-20px}
+.csi-content{}
+.compliance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:48px}
+.compliance-card{background:var(--navy);padding:32px 28px;display:flex;flex-direction:column;gap:12px}
+.compliance-abbr{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--orange)}
+.compliance-name{font-size:13px;font-weight:600;color:var(--white);line-height:1.3}
+.compliance-desc{font-size:12px;line-height:1.7;color:var(--text-muted);font-weight:300}
+.compliance-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-top:4px}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--orange)}
+
+/* ── CTA ── */
+.cta-strip{padding:80px 60px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;background:var(--orange)}
+.cta-strip h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:400;color:var(--navy);line-height:1.1}
+.cta-strip p{font-size:15px;color:rgba(0,45,84,0.7);margin-top:12px;font-weight:300}
+.cta-actions{display:flex;gap:16px;flex-shrink:0}
+.btn-navy{background:var(--navy);color:var(--white);padding:18px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;white-space:nowrap}
+.btn-outline-navy{color:var(--navy);padding:18px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;border:2px solid var(--navy);white-space:nowrap}
+
+/* ── FOOTER ── */
+footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--border)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-logo-sub{font-size:9px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;margin-bottom:16px;display:block;margin-top:4px}
+.footer-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.35);font-weight:300;max-width:280px;margin-bottom:16px}
+.footer-social{display:flex;gap:10px}
+.s-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:11px;color:rgba(255,255,255,0.4);text-decoration:none;font-weight:600;transition:all 0.2s}
+.s-icon:hover{border-color:var(--orange);color:var(--orange)}
+.footer-col h4{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);font-weight:500;margin-bottom:20px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{color:rgba(255,255,255,0.35);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+.footer-reg{font-size:11px;color:rgba(255,255,255,0.15)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.page-hero-inner>*{animation:fadeUp 0.7s ease both}
+.page-hero-inner>*:nth-child(1){animation-delay:0.1s}
+.page-hero-inner>*:nth-child(2){animation-delay:0.25s}
+.page-hero-inner>*:nth-child(3){animation-delay:0.4s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="120" height="auto">
+      <path fill="#FFFFFF" d="M34.3,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4C3,50,0.8,44.8,0.8,38.8c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9H34.3V57.4z M14.6,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C19.6,27.4,16.9,28.5,14.6,30.7z M55.1,57.1c-3-2.6-4.5-5.8-4.5-9.7h10.1c0,1.3,0.7,2.1,2,2.7c0.7,0.3,1.3,0.4,2,0.4c1.3,0,2.3-0.2,3.1-0.6c0.8-0.4,1.3-1,1.3-1.8c0-0.9-0.2-1.6-0.7-2c-0.7-0.7-2.1-1.2-4.3-1.5c-4.5-0.5-8-2.1-10.6-4.8c-2.2-2.4-3.4-5.3-3.4-8.4c0-3.8,1.3-7.1,3.7-9.9c2.7-3.1,6.2-4.7,10.6-4.7c4.4,0,8,1.4,10.7,4.2c2.8,2.8,4.2,6.4,4.2,10.7H69.4c0-3.2-1.6-4.7-4.8-4.7c-2.8,0-4.2,1.4-4.2,4.3c0,1.8,1.7,2.8,5,3.3c5.4,0.6,9.2,2.5,11.5,5.6c1.6,2.1,2.4,4.7,2.4,7.8c0,3.6-1.4,6.6-4.3,9c-2.9,2.3-6.3,3.5-10.3,3.5C61,60.7,57.8,59.5,55.1,57.1z M98.4,58.9c-2.5-1.1-4.8-2.6-6.8-4.5c-2-2-3.6-4.3-4.7-6.9c-1.2-2.7-1.8-5.5-1.8-8.5c-0.1-2.8,0.4-5.5,1.4-8.1l0.3-0.6c1.1-2.6,2.6-4.8,4.5-6.8c2.1-2.1,4.3-3.6,6.9-4.7c2.7-1.2,5.6-1.8,8.5-1.8c2.9-0.1,5.7,0.5,8.3,1.5l0.4,0.2c2.6,1.1,4.8,2.6,6.7,4.6c2,2,3.6,4.3,4.7,6.9c1.4,3.2,2,7.7,1.8,13.6l-32,0.2c0.6,1.1,1.3,2,2.1,2.9c1.1,1,2.2,1.8,3.5,2.4l0.4,0.2c1.4,0.5,2.8,0.7,4.2,0.8c1.5,0,3-0.3,4.4-0.9c1.3-0.6,2.6-1.5,3.6-2.5l7.4,7.3c-2,2-4.3,3.6-6.9,4.7c-2.7,1.2-5.5,1.8-8.5,1.8c-2.8,0.1-5.5-0.4-8.1-1.4L98.4,58.9z M111.1,28.1c-1.3-0.5-2.8-0.8-4.3-0.8c-1.6,0-3.1,0.3-4.5,0.9c-1.3,0.7-2.5,1.5-3.5,2.5c-0.9,0.9-1.6,1.9-2.1,2.9l20.4-0.1c-0.6-1.1-1.2-2-2.1-2.9c-1.1-1.1-2.3-1.9-3.7-2.5L111.1,28.1z M178.4,38.8c0,6-2.1,11.2-6.5,15.4c-4.2,4.3-9.4,6.4-15.4,6.4c-6,0-11.2-2.1-15.5-6.4c-4.3-4.3-6.4-9.4-6.4-15.4c0-6,2.1-11.2,6.4-15.4c4.3-4.3,9.4-6.5,15.5-6.5c4.3,0,8.1,1.1,11.6,3.3V1h10.3V38.8z M156.5,27.3c-3.2,0-5.9,1.1-8.1,3.4c-2.2,2.2-3.4,5-3.4,8.1c0,3.1,1.1,5.8,3.4,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.3-5,3.3-8.1c0-3.2-1.1-5.9-3.3-8.1C162.4,28.4,159.7,27.3,156.5,27.3z M217.4,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4c-4.3-4.3-6.5-9.4-6.5-15.4c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9h-10.3V57.4z M197.7,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C202.7,27.4,200,28.5,197.7,30.7z"/>
+      <circle fill="#FF8C00" cx="248" cy="55" r="7"/>
+    </svg>
+    <span class="nav-logo-sub">Beyond Infrastructure</span>
+  </div>
+  <div class="nav-links">
+    <a href="#" >Home</a>
+    <a href="#" >About</a>
+    <a href="#" >Services</a>
+    <a href="#" >Projects</a>
+    <a href="#" >SHEQ</a>
+    <a href="#" class="active">Transformation</a>
+    <a href="#" >Insights</a>
+    <a href="#" >Careers</a>
+    <a href="#" class="nav-cta">Contact Us</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#" >Home</a>
+  <a href="#" >About</a>
+  <a href="#" >Services</a>
+  <a href="#" >Projects</a>
+  <a href="#" class="active">Transformation</a>
+  <a href="#" >Insights</a>
+  <a href="#" >Careers</a>
+  <a href="#" class="nav-cta-mobile">Contact Us</a>
+</div>
+<script>
+function toggleMenu(btn){
+  btn.classList.toggle('open');
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+</script>
+
+<!-- HERO — orange background for impact -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="#">Home</a><span>›</span>
+      <span class="breadcrumb-current">Transformation & Social Impact</span>
+    </div>
+    <h1>Business as <em>Social.</em><br>Social as <em>Business.</em></h1>
+    <p class="page-hero-sub">At Aseda, Corporate Social Investment is not a peripheral activity — it is the bedrock of our business model. Our Level 1 B-BBEE status is not a target we chase. It is a natural byproduct of how we operate every single day.</p>
+  </div>
+  <div class="hero-deco">
+    <div class="deco-l" style="width:120px"></div>
+    <div class="deco-l" style="width:60px"></div>
+    <div class="deco-l" style="width:160px"></div>
+    <div class="deco-l" style="width:80px"></div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<div class="impact-strip">
+  <div class="impact-num">
+    <div class="impact-big">1,200<span>+</span></div>
+    <div class="impact-label">Youth trained</div>
+    <div class="impact-sub">Through the Itirele Programme in North West Province</div>
+  </div>
+  <div class="impact-num">
+    <div class="impact-big">27<span>K</span></div>
+    <div class="impact-label">Work opportunities</div>
+    <div class="impact-sub">Targeted through provincial Labour Activation Plan</div>
+  </div>
+  <div class="impact-num">
+    <div class="impact-big">60<span>%</span></div>
+    <div class="impact-label">Women targeted</div>
+    <div class="impact-sub">In Itirele Programme recruitment — by design, not default</div>
+  </div>
+  <div class="impact-num">
+    <div class="impact-big">Lv.<span>1</span></div>
+    <div class="impact-label">B-BBEE Status</div>
+    <div class="impact-sub">Verified by Renaissance SA Rating Agency — 100% Black-owned</div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-inner">
+    <div>
+      <div class="sec-label">Our Philosophy</div>
+      <h2>Infrastructure is,<br>by definition,<br>a <em>Social Responsibility.</em></h2>
+      <p class="body-lg">We operate on the conviction that every bridge, road, water scheme, or building we deliver is a vehicle for socioeconomic development. Our footprint leaves behind more than built assets — it leaves behind empowered communities.</p>
+      <p class="body-sm">By integrating job creation, skills development, and enterprise support into the core of our operations, we are building the tangible levers of economic dignity — not as a compliance exercise, but as a fundamental expression of who we are.</p>
+      <div class="philosophy-quote">
+        <p>"At the heart of every great economy is the infrastructure that sustains it."</p>
+        <cite>Dennis Mathibe — Chief Executive Officer, Aseda</cite>
+      </div>
+    </div>
+    <div class="philosophy-right">
+      <div class="phil-card">
+        <div class="phil-icon">I</div>
+        <div class="phil-title">SED as a Core Discipline</div>
+        <p class="phil-desc">We have elevated Socioeconomic Development from a compliance checkbox to a dedicated service line — receiving the same strategic resource allocation and technical rigour as our engineering workstreams.</p>
+      </div>
+      <div class="phil-card">
+        <div class="phil-icon">II</div>
+        <div class="phil-title">Authentic, Not Enforced</div>
+        <p class="phil-desc">Our B-BBEE, Employment Equity, and EPWP compliance is a natural byproduct of our daily operations — not a last-minute target to be met before year-end reporting.</p>
+      </div>
+      <div class="phil-card">
+        <div class="phil-icon">III</div>
+        <div class="phil-title">Communities as Stakeholders</div>
+        <p class="phil-desc">Every project we execute involves the communities it serves — through employment, skills transfer, enterprise development, and ongoing engagement throughout the project lifecycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- B-BBEE -->
+<section class="bbee-section">
+  <div class="bbee-inner">
+    <div class="bbee-left">
+      <div class="sec-label">B-BBEE Credentials</div>
+      <h2>Level 1.<br><em>Verified. Authentic.<br>Unwavering.</em></h2>
+      <p class="body-sm" style="margin-bottom:32px">Our Level 1 B-BBEE status is the highest recognition available under the B-BBEE Codes of Good Practice — achieved through genuine transformation across all measured elements, not creative compliance.</p>
+      <div class="bbee-pillars">
+        <div class="bbee-pillar"><span class="bbee-pillar-dot"></span><span class="bbee-pillar-name">Ownership</span><span class="bbee-pillar-score">100% Black-owned</span></div>
+        <div class="bbee-pillar"><span class="bbee-pillar-dot"></span><span class="bbee-pillar-name">Management Control</span><span class="bbee-pillar-score">Black executive leadership</span></div>
+        <div class="bbee-pillar"><span class="bbee-pillar-dot"></span><span class="bbee-pillar-name">Skills Development</span><span class="bbee-pillar-score">Accredited programmes</span></div>
+        <div class="bbee-pillar"><span class="bbee-pillar-dot"></span><span class="bbee-pillar-name">Enterprise Development</span><span class="bbee-pillar-score">Supply chain incubation</span></div>
+        <div class="bbee-pillar"><span class="bbee-pillar-dot"></span><span class="bbee-pillar-name">Socioeconomic Development</span><span class="bbee-pillar-score">Core service line</span></div>
+        <div class="bbee-pillar"><span class="bbee-pillar-dot"></span><span class="bbee-pillar-name">Preferential Procurement</span><span class="bbee-pillar-score">Transformation-aligned</span></div>
+      </div>
+    </div>
+    <div class="bbee-right">
+      <div class="ownership-highlight">
+        <div class="ownership-highlight-label">Ownership</div>
+        <div class="ownership-stat"><span>100</span>%</div>
+        <p class="ownership-desc" style="margin-top:8px">Aseda is 100% Black-owned — not majority, not notional. Every share, every decision, every rand of value creation flows through Black ownership. This is the foundation from which all our transformation credentials grow.</p>
+      </div>
+      <div class="bbee-badge-large">
+        <div class="bbee-badge-level">L1</div>
+        <div class="bbee-badge-text">
+          <div class="bbee-badge-title">B-BBEE Level 1</div>
+          <div class="bbee-badge-sub">Broad-Based Black Economic Empowerment</div>
+        </div>
+      </div>
+      <div class="verifier-strip">
+        <div class="verifier-dot"></div>
+        <div class="verifier-text"><strong>Verified by Renaissance SA Rating Agency</strong> — our B-BBEE certificate is current, independently verified, and available on request for all procurement processes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGIC IMPACT PILLARS -->
+<section class="pillars-section">
+  <div class="pillars-header">
+    <div class="sec-label">Strategic Impact Pillars</div>
+    <h2>Five Ways We<br><em>Build Dignity</em></h2>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <div class="pillar-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Integrated Community Participation</h3>
+      <p class="phil-desc">Our Civil and Roads projects are designed to be inclusive from the outset. We embed local labour, skills transfer, and knowledge sharing into the project lifecycle — often absorbing beneficiaries into long-term employment within Aseda itself.</p>
+      <div class="pillar-result">↳ Local labour first on every site</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <div class="pillar-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <h3>Career Building & Youth Empowerment</h3>
+      <p class="phil-desc">We actively cultivate the next generation of industry leaders. Through structured job rotation, study assistance, and mentorship, many of our bursars and youth beneficiaries have ascended to senior roles both within Aseda and the broader industry.</p>
+      <div class="pillar-result">↳ From bursar to boardroom</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <div class="pillar-icon-wrap">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <h3>Enterprise Development</h3>
+      <p class="phil-desc">We view our supply chain as an incubator. Our procurement practices are specifically designed to help startups navigate early-stage challenges — frequently partnering with emerging businesses on major projects to build their capacity and creditworthiness.</p>
+      <div class="pillar-result">↳ Supply chain as a launchpad</div>
+    </div>
+  </div>
+  <div class="pillars-grid-bottom" style="margin-top:1px">
+    <div class="pillar-card">
+      <div class="pillar-num">04</div>
+      <div class="pillar-icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>Diversity & Inclusion</h3>
+      <p class="phil-desc">Through intentional human capital interventions, we foster a culture that champions diversity awareness, inclusion, and equal opportunity. Our workforce reflects the communities we serve — not as a quota, but as a source of strength and competitive advantage.</p>
+      <div class="pillar-result">↳ Diverse teams deliver better outcomes</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">05</div>
+      <div class="pillar-icon-wrap">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Socioeconomic Development as a Service</h3>
+      <p class="phil-desc">SED has been elevated from a line item in our compliance scorecard to a dedicated service line — with its own resources, methodology, and delivery standards. We offer SED as a service to clients who want to maximise the community impact of their infrastructure investment.</p>
+      <div class="pillar-result">↳ SED is a deliverable, not a footnote</div>
+    </div>
+  </div>
+</section>
+
+<!-- ITIRELE SHOWCASE -->
+<section class="itirele-section">
+  <div class="itirele-img">
+    <!-- IMAGE PLACEHOLDER: Aerial of Itirele road works — workers in orange hi-vis, North West landscape, golden hour. 800×600px -->
+    <div class="img-placeholder">
+      <div class="img-ph-icon">📸</div>
+      <div class="img-ph-label">Photo: Itirele Programme — workers on site, North West Province</div>
+    </div>
+    <div class="itirele-img-overlay"></div>
+  </div>
+  <div class="itirele-content">
+    <div>
+      <div class="itirele-tag">Flagship Programme · Roads & Youth Development</div>
+      <h2>National Youth<br>Service <em>Itirele</em><br>Programme</h2>
+      <p>A landmark Community-Based Programme combining routine road maintenance with accredited skills development and large-scale youth employment — embodying Aseda's "Business as Social" philosophy at R1.2 Billion scale.</p>
+      <div class="itirele-stats">
+        <div class="it-stat"><div class="it-stat-num">1,200+</div><div class="it-stat-label">Youth trained</div></div>
+        <div class="it-stat"><div class="it-stat-num">R1.2B</div><div class="it-stat-label">Programme value</div></div>
+        <div class="it-stat"><div class="it-stat-num">12mo</div><div class="it-stat-label">Service period</div></div>
+        <div class="it-stat"><div class="it-stat-num">NQF</div><div class="it-stat-label">Accredited training</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="itirele-targets">
+        <div class="it-target">
+          <span style="min-width:120px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Women</span>
+          <div class="it-target-bar"><div class="it-target-fill" style="width:60%"></div></div>
+          <span class="it-target-pct">60%</span>
+        </div>
+        <div class="it-target">
+          <span style="min-width:120px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Previously disadvantaged</span>
+          <div class="it-target-bar"><div class="it-target-fill" style="width:80%"></div></div>
+          <span class="it-target-pct">80%</span>
+        </div>
+        <div class="it-target">
+          <span style="min-width:120px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Persons with disabilities</span>
+          <div class="it-target-bar"><div class="it-target-fill" style="width:10%"></div></div>
+          <span class="it-target-pct">Incl.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <!-- IMAGE: Community site photo — workers building, smiling, 400×280px -->
+  <div class="photo-item">
+    <div class="photo-placeholder-inner"><span>👷</span><p>Photo: Site workers, local community</p></div>
+    <div class="photo-overlay"><div class="photo-caption">Community labour</div></div>
+  </div>
+  <!-- IMAGE: Women in engineering / hi-vis at site, 400×280px -->
+  <div class="photo-item">
+    <div class="photo-placeholder-inner"><span>👩‍🔧</span><p>Photo: Women in engineering on site</p></div>
+    <div class="photo-overlay"><div class="photo-caption">Women in infrastructure</div></div>
+  </div>
+  <!-- IMAGE: Youth training / classroom session, 400×280px -->
+  <div class="photo-item">
+    <div class="photo-placeholder-inner"><span>📚</span><p>Photo: Youth skills training session</p></div>
+    <div class="photo-overlay"><div class="photo-caption">Skills development</div></div>
+  </div>
+  <!-- IMAGE: Community / completed infrastructure with residents, 400×280px -->
+  <div class="photo-item">
+    <div class="photo-placeholder-inner"><span>🏘️</span><p>Photo: Completed infrastructure, community</p></div>
+    <div class="photo-overlay"><div class="photo-caption">Community impact</div></div>
+  </div>
+</div>
+
+<!-- THE TRANSFORMATION RESULT -->
+<section class="result-section">
+  <div class="result-inner">
+    <div class="result-left">
+      <div class="sec-label">The Transformation Result</div>
+      <h2>Compliance is the<br><em>Floor, Not the Ceiling.</em></h2>
+      <p class="body-lg">Because of our integrative approach, our compliance with B-BBEE, Employment Equity, and the Expanded Public Works Programme on projects is not a forced target — it is a natural byproduct of our daily operations.</p>
+      <p class="body-sm">Our Level 1 B-BBEE status is a verified testament to this authentic commitment. It is the score that reflects who we are, not who we are trying to appear to be.</p>
+    </div>
+    <div class="result-right">
+      <div class="result-stat">
+        <div class="result-stat-num"><em>Lv.1</em></div>
+        <div class="result-stat-label">B-BBEE Status</div>
+        <div class="result-stat-desc">The highest recognition under the B-BBEE Codes of Good Practice</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-num"><em>100%</em></div>
+        <div class="result-stat-label">Black Ownership</div>
+        <div class="result-stat-desc">Not majority, not nominal — complete Black ownership since inception</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-num"><em>EPWP</em></div>
+        <div class="result-stat-label">Programme Compliant</div>
+        <div class="result-stat-desc">Expanded Public Works Programme compliance on all applicable projects</div>
+      </div>
+      <div class="result-stat">
+        <div class="result-stat-num"><em>EE</em></div>
+        <div class="result-stat-label">Employment Equity</div>
+        <div class="result-stat-desc">Active Employment Equity plan aligned to South African legislation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSI COMPLIANCE -->
+<section class="csi-statement">
+  <div class="csi-inner">
+    <div class="csi-label-col">
+      <div class="csi-num">06</div>
+      <div class="sec-label">Compliance Framework</div>
+    </div>
+    <div class="csi-content">
+      <h2>Verified Compliance<br>Across <em>Every Framework</em></h2>
+      <p class="body-sm">Aseda maintains active compliance across all applicable transformation, labour, and procurement frameworks — not because we must, but because we understand their role in building a more equitable South African economy.</p>
+      <div class="compliance-grid">
+        <div class="compliance-card">
+          <div class="compliance-abbr">B-BBEE</div>
+          <div class="compliance-name">Broad-Based Black Economic Empowerment</div>
+          <div class="compliance-desc">Level 1 status verified by Renaissance SA Rating Agency. Certificate available on request for all procurement processes.</div>
+          <div class="compliance-status"><span class="status-dot"></span>Level 1 — Active</div>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-abbr">EPWP</div>
+          <div class="compliance-name">Expanded Public Works Programme</div>
+          <div class="compliance-desc">Compliance on all applicable government infrastructure projects — job creation, training, and reporting aligned to EPWP guidelines.</div>
+          <div class="compliance-status"><span class="status-dot"></span>Compliant — Active</div>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-abbr">EE</div>
+          <div class="compliance-name">Employment Equity Act</div>
+          <div class="compliance-desc">Active Employment Equity Plan in place. Workforce profile reflects the demographics of the communities and regions in which we operate.</div>
+          <div class="compliance-status"><span class="status-dot"></span>Plan Active</div>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-abbr">UIF</div>
+          <div class="compliance-name">Unemployment Insurance Fund</div>
+          <div class="compliance-desc">UIF registration number 1807838/6 — all employees covered, all contributions current.</div>
+          <div class="compliance-status"><span class="status-dot"></span>Registered — 1807838/6</div>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-abbr">COIDA</div>
+          <div class="compliance-name">Compensation for Occupational Injuries</div>
+          <div class="compliance-desc">COIDA registration 9900004020298 — all workers covered for occupational injuries and diseases as required by law.</div>
+          <div class="compliance-status"><span class="status-dot"></span>Registered — Active</div>
+        </div>
+        <div class="compliance-card">
+          <div class="compliance-abbr">CSD</div>
+          <div class="compliance-name">National Treasury Supplier Database</div>
+          <div class="compliance-desc">Registered on the Central Supplier Database (MAAA0062087) — pre-qualified for all national and provincial government procurement.</div>
+          <div class="compliance-status"><span class="status-dot"></span>MAAA0062087 — Active</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div>
+    <h2>Partner with us on<br>your next project.</h2>
+    <p>Work with a firm where transformation is built in, not bolted on.</p>
+  </div>
+  <div class="cta-actions">
+    <a href="#" class="btn-navy">Get In Touch</a>
+    <a href="#" class="btn-outline-navy">View Projects</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="110" height="auto">
+        <path fill="#FFFFFF" d="M34.3,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4C3,50,0.8,44.8,0.8,38.8c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9H34.3V57.4z M14.6,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C19.6,27.4,16.9,28.5,14.6,30.7z M55.1,57.1c-3-2.6-4.5-5.8-4.5-9.7h10.1c0,1.3,0.7,2.1,2,2.7c0.7,0.3,1.3,0.4,2,0.4c1.3,0,2.3-0.2,3.1-0.6c0.8-0.4,1.3-1,1.3-1.8c0-0.9-0.2-1.6-0.7-2c-0.7-0.7-2.1-1.2-4.3-1.5c-4.5-0.5-8-2.1-10.6-4.8c-2.2-2.4-3.4-5.3-3.4-8.4c0-3.8,1.3-7.1,3.7-9.9c2.7-3.1,6.2-4.7,10.6-4.7c4.4,0,8,1.4,10.7,4.2c2.8,2.8,4.2,6.4,4.2,10.7H69.4c0-3.2-1.6-4.7-4.8-4.7c-2.8,0-4.2,1.4-4.2,4.3c0,1.8,1.7,2.8,5,3.3c5.4,0.6,9.2,2.5,11.5,5.6c1.6,2.1,2.4,4.7,2.4,7.8c0,3.6-1.4,6.6-4.3,9c-2.9,2.3-6.3,3.5-10.3,3.5C61,60.7,57.8,59.5,55.1,57.1z M98.4,58.9c-2.5-1.1-4.8-2.6-6.8-4.5c-2-2-3.6-4.3-4.7-6.9c-1.2-2.7-1.8-5.5-1.8-8.5c-0.1-2.8,0.4-5.5,1.4-8.1l0.3-0.6c1.1-2.6,2.6-4.8,4.5-6.8c2.1-2.1,4.3-3.6,6.9-4.7c2.7-1.2,5.6-1.8,8.5-1.8c2.9-0.1,5.7,0.5,8.3,1.5l0.4,0.2c2.6,1.1,4.8,2.6,6.7,4.6c2,2,3.6,4.3,4.7,6.9c1.4,3.2,2,7.7,1.8,13.6l-32,0.2c0.6,1.1,1.3,2,2.1,2.9c1.1,1,2.2,1.8,3.5,2.4l0.4,0.2c1.4,0.5,2.8,0.7,4.2,0.8c1.5,0,3-0.3,4.4-0.9c1.3-0.6,2.6-1.5,3.6-2.5l7.4,7.3c-2,2-4.3,3.6-6.9,4.7c-2.7,1.2-5.5,1.8-8.5,1.8c-2.8,0.1-5.5-0.4-8.1-1.4L98.4,58.9z M111.1,28.1c-1.3-0.5-2.8-0.8-4.3-0.8c-1.6,0-3.1,0.3-4.5,0.9c-1.3,0.7-2.5,1.5-3.5,2.5c-0.9,0.9-1.6,1.9-2.1,2.9l20.4-0.1c-0.6-1.1-1.2-2-2.1-2.9c-1.1-1.1-2.3-1.9-3.7-2.5L111.1,28.1z M178.4,38.8c0,6-2.1,11.2-6.5,15.4c-4.2,4.3-9.4,6.4-15.4,6.4c-6,0-11.2-2.1-15.5-6.4c-4.3-4.3-6.4-9.4-6.4-15.4c0-6,2.1-11.2,6.4-15.4c4.3-4.3,9.4-6.5,15.5-6.5c4.3,0,8.1,1.1,11.6,3.3V1h10.3V38.8z M156.5,27.3c-3.2,0-5.9,1.1-8.1,3.4c-2.2,2.2-3.4,5-3.4,8.1c0,3.1,1.1,5.8,3.4,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.3-5,3.3-8.1c0-3.2-1.1-5.9-3.3-8.1C162.4,28.4,159.7,27.3,156.5,27.3z M217.4,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4c-4.3-4.3-6.5-9.4-6.5-15.4c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9h-10.3V57.4z M197.7,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C202.7,27.4,200,28.5,197.7,30.7z"/>
+        <circle fill="#FF8C00" cx="248" cy="55" r="7"/>
+      </svg>
+      <span class="footer-logo-sub">Beyond Infrastructure</span>
+      <p class="footer-desc">A premier infrastructure delivery and advisory firm serving investors, governments, and developers across Africa since 2005.</p>
+      <div class="footer-social">
+        <a class="s-icon" href="#">in</a>
+        <a class="s-icon" href="#">fb</a>
+        <a class="s-icon" href="#">tw</a>
+        <a class="s-icon" href="#">ig</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>About</h4><div class="footer-links"><a href="#">Our Story</a><a href="#">The Aseda Way</a><a href="#">Leadership</a><a href="#">SHEQ Standards</a><a href="#">Governance</a></div></div>
+    <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="#">Civil & Structural</a><a href="#">Water & Sanitation</a><a href="#">Roads & Transport</a><a href="#">Energy Solutions</a><a href="#">Advisory</a></div></div>
+    <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="#">Projects</a><a href="#">News & Insights</a><a href="#">Social Impact</a><a href="#">Careers</a><a href="#">Contact</a></div></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© Aseda 2026. All Rights Reserved.</span>
+    <span class="footer-reg">Reg: 2005/019873/07 · VAT: 4640221281 · Level 1 B-BBEE</span>
+  </div>
+</footer>
+
+</body>
+</html>
