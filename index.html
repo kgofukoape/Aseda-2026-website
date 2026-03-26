@@ -19,7 +19,7 @@
   }
   body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
 
-  /* NAV (Surgically Fixed) */
+  /* NAV (Clean Fix) */
   nav{position:sticky;top:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,45,84,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,140,0,0.2)}
   .nav-logo{display:flex;flex-direction:column;gap:0px}
   .nav-logo svg{width:130px;height:auto}
@@ -29,9 +29,9 @@
   .nav-links a:hover{color:var(--orange)}
   .nav-cta{background:var(--orange);color:var(--white)!important;padding:10px 24px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none}
   
-  .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
   .nav-hamburger span{display:block;width:24px;height:2px;background:var(--white);transition:0.3s}
-  .nav-mobile{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,45,84,0.98);padding:20px 24px;flex-direction:column;gap:15px;z-index:99;border-bottom:1px solid var(--orange)}
+  .nav-mobile{display:none;position:fixed;top:73px;left:0;right:0;background:rgba(0,45,84,0.98);padding:20px 24px;flex-direction:column;gap:15px;z-index:99;border-bottom:1px solid var(--orange)}
   .nav-mobile.open{display:flex}
 
   @media(max-width:1024px){
@@ -53,6 +53,13 @@
   h1{font-family:'Cormorant Garamond',serif;font-size:88px;line-height:1.0;font-weight:300;margin-bottom:28px}
   h1 em{font-style:italic;color:var(--orange)}
   .hero-sub{font-size:16px;line-height:1.85;color:rgba(255,255,255,0.7);max-width:520px;margin-bottom:52px;font-weight:300}
+  .hero-actions{display:flex;gap:16px;align-items:center;margin-bottom:80px}
+  .btn-primary{background:var(--orange);color:var(--white);padding:18px 40px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s}
+  .btn-ghost{color:var(--white);padding:18px 40px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.35);display:inline-block;transition:all 0.2s;backdrop-filter:blur(4px)}
+  .hero-badges{display:flex;gap:20px;flex-wrap:wrap}
+  .hero-badge{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px);padding:16px 24px;display:flex;flex-direction:column;gap:4px;min-width:140px}
+  .badge-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--orange);line-height:1}
+  .badge-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);font-weight:500}
 
   /* STATS */
   .stats{background:var(--orange);padding:28px 60px;display:grid;grid-template-columns:repeat(4,1fr)}
@@ -61,72 +68,37 @@
   .stat-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--navy);line-height:1}
   .stat-label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(0,45,84,0.65);font-weight:500}
 
-  /* FOOTER */
-  footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--border)}
-</style>
-</head>
-<body>
+  /* ABOUT */
+  .about{padding:100px 60px;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;border-bottom:1px solid var(--border)}
+  .sec-label{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--orange);font-weight:500;padding-top:8px}
+  h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1.2;margin-bottom:24px}
+  .body-text{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.6);font-weight:300;max-width:680px;margin-bottom:32px}
+  .pills{display:flex;gap:12px;flex-wrap:wrap}
+  .pill{padding:8px 20px;border:1px solid rgba(255,140,0,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:500}
 
-<nav>
-  <div class="nav-logo">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 255.1 70" width="120" height="auto">
-      <path fill="#FFFFFF" d="M34.3,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4C3,50,0.8,44.8,0.8,38.8c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9H34.3V57.4z M14.6,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C19.6,27.4,16.9,28.5,14.6,30.7z M55.1,57.1c-3-2.6-4.5-5.8-4.5-9.7h10.1c0,1.3,0.7,2.1,2,2.7c0.7,0.3,1.3,0.4,2,0.4c1.3,0,2.3-0.2,3.1-0.6c0.8-0.4,1.3-1,1.3-1.8c0-0.9-0.2-1.6-0.7-2c-0.7-0.7-2.1-1.2-4.3-1.5c-4.5-0.5-8-2.1-10.6-4.8c-2.2-2.4-3.4-5.3-3.4-8.4c0-3.8,1.3-7.1,3.7-9.9c2.7-3.1,6.2-4.7,10.6-4.7c4.4,0,8,1.4,10.7,4.2c2.8,2.8,4.2,6.4,4.2,10.7H69.4c0-3.2-1.6-4.7-4.8-4.7c-2.8,0-4.2,1.4-4.2,4.3c0,1.8,1.7,2.8,5,3.3c5.4,0.6,9.2,2.5,11.5,5.6c1.6,2.1,2.4,4.7,2.4,7.8c0,3.6-1.4,6.6-4.3,9c-2.9,2.3-6.3,3.5-10.3,3.5C61,60.7,57.8,59.5,55.1,57.1z M98.4,58.9c-2.5-1.1-4.8-2.6-6.8-4.5c-2-2-3.6-4.3-4.7-6.9c-1.2-2.7-1.8-5.5-1.8-8.5c-0.1-2.8,0.4-5.5,1.4-8.1l0.3-0.6c1.1-2.6,2.6-4.8,4.5-6.8c2.1-2.1,4.3-3.6,6.9-4.7c2.7-1.2,5.6-1.8,8.5-1.8c2.9-0.1,5.7,0.5,8.3,1.5l0.4,0.2c2.6,1.1,4.8,2.6,6.7,4.6c2,2,3.6,4.3,4.7,6.9c1.4,3.2,2,7.7,1.8,13.6l-32,0.2c0.6,1.1,1.3,2,2.1,2.9c1.1,1,2.2,1.8,3.5,2.4l0.4,0.2c1.4,0.5,2.8,0.7,4.2,0.8c1.5,0,3-0.3,4.4-0.9c1.3-0.6,2.6-1.5,3.6-2.5l7.4,7.3c-2,2-4.3,3.6-6.9,4.7c-2.7,1.2-5.5,1.8-8.5,1.8c-2.8,0.1-5.5-0.4-8.1-1.4L98.4,58.9z M111.1,28.1c-1.3-0.5-2.8-0.8-4.3-0.8c-1.6,0-3.1,0.3-4.5,0.9c-1.3,0.7-2.5,1.5-3.5,2.5c-0.9,0.9-1.6,1.9-2.1,2.9l20.4-0.1c-0.6-1.1-1.2-2-2.1-2.9c-1.1-1.1-2.3-1.9-3.7-2.5L111.1,28.1z M178.4,38.8c0,6-2.1,11.2-6.5,15.4c-4.2,4.3-9.4,6.4-15.4,6.4c-6,0-11.2-2.1-15.5-6.4c-4.3-4.3-6.4-9.4-6.4-15.4c0-6,2.1-11.2,6.4-15.4c4.3-4.3,9.4-6.5,15.5-6.5c4.3,0,8.1,1.1,11.6,3.3V1h10.3V38.8z M156.5,27.3c-3.2,0-5.9,1.1-8.1,3.4c-2.2,2.2-3.4,5-3.4,8.1c0,3.1,1.1,5.8,3.4,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.3-5,3.3-8.1c0-3.2-1.1-5.9-3.3-8.1C162.4,28.4,159.7,27.3,156.5,27.3z M217.4,57.4c-3.4,2.1-7.3,3.3-11.6,3.3c-6,0-11.1-2.1-15.4-6.4c-4.3-4.3-6.5-9.4-6.5-15.4c0-6,2.2-11.2,6.5-15.4c4.3-4.3,9.4-6.5,15.4-6.5c6,0,11.2,2.1,15.5,6.5c4.3,4.2,6.4,9.4,6.4,15.4v21.9h-10.3V57.4z M197.7,30.7c-2.2,2.2-3.3,4.9-3.3,8.1c0,3.1,1.1,5.8,3.3,8.1c2.3,2.2,5,3.3,8.1,3.3c3.2,0,5.9-1.1,8.1-3.3c2.2-2.3,3.4-5,3.4-8.1c0-3.2-1.1-5.9-3.4-8.1c-2.2-2.2-5-3.3-8.1-3.3C202.7,27.4,200,28.5,197.7,30.7z"/>
-      <circle fill="#FF8C00" cx="248" cy="55" r="7"/>
-    </svg>
-    <span class="nav-logo-sub">Beyond Infrastructure</span>
-  </div>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="projects.html">Projects</a>
-    <a href="standards.html">SHEQ</a>
-    <a href="impact.html">Transformation</a>
-    <a href="contact.html" class="nav-cta">Contact Us</a>
-  </div>
-  <button class="nav-hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  /* SERVICES */
+  .services{padding:0 60px 100px;border-bottom:1px solid var(--border)}
+  .sec-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;padding-top:80px}
+  .sec-link{color:var(--orange);font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;font-weight:500}
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+  .svc{background:var(--navy);padding:48px 40px;position:relative;overflow:hidden;cursor:pointer}
+  .svc-num{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:rgba(255,140,0,0.09);line-height:1;margin-bottom:24px}
+  .svc-title{font-size:17px;font-weight:600;margin-bottom:14px}
+  .svc-desc{font-size:13px;line-height:1.8;color:rgba(255,255,255,0.5);font-weight:300}
 
-<div class="nav-mobile" id="nav-mobile">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="projects.html">Projects</a>
-  <a href="impact.html">Transformation</a>
-  <a href="contact.html">Contact Us</a>
-</div>
+  /* PROJECTS */
+  .projects{padding:80px 60px;border-bottom:1px solid var(--border)}
+  .proj-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:auto auto;gap:2px;background:var(--border);margin-top:48px}
+  .proj{background:var(--navy-mid);padding:40px;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer}
+  .proj.featured{grid-row:1/3;min-height:460px}
+  .proj-value{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--orange);margin-bottom:8px}
+  .proj-title{font-size:14px;font-weight:600;margin-bottom:6px;line-height:1.4}
+  .proj-loc{font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase}
+  .proj-tag{display:inline-block;margin-bottom:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,140,0,0.65);font-weight:500}
 
-<section class="hero">
-  <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline>
-      <source src="hero-video.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="hero-video-overlay"></div>
-  <div class="hero-video-grain"></div>
-
-  <div class="hero-left">
-    <div class="hero-tag"><span class="hero-tag-line"></span><span class="hero-tag-text">Est. 2005 · Pan-African Infrastructure</span></div>
-    <h1>Building Africa's<br><em>Enduring</em><br>Realities.</h1>
-    <p class="hero-sub">Engineering, construction, and advisory services that deliver economic dignity and community impact across the continent.</p>
-  </div>
-</section>
-
-<div class="stats">
-  <div class="stat-item"><span class="stat-num">R3.5B+</span><span class="stat-label">Portfolio Value</span></div>
-  <div class="stat-item"><span class="stat-num">Lv.1</span><span class="stat-label">B-BBEE Status</span></div>
-  <div class="stat-item"><span class="stat-num">2</span><span class="stat-label">Continental Hubs</span></div>
-  <div class="stat-item"><span class="stat-num">76yrs</span><span class="stat-label">Combined Leadership Experience</span></div>
-</div>
-
-<script>
-function toggleMenu() {
-  const mobileNav = document.getElementById('nav-mobile');
-  mobileNav.classList.toggle('open');
-}
-</script>
-
-</body>
-</html>
+  /* TRANSFORMATION */
+  .transform{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--border)}
+  .transform-left{background:var(--orange);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between}
+  .transform-left h2{color:var(--navy);font-size:52px}
+  .transform-text{font-size:14px;line-height:1.9;color:rgba(0,45,84,0.72);font-weight:300;margin-bottom:40px}
+  .transform-btn{display:inline-block;background:var(--navy);color:var(--white);padding:16px 36px;font-size:12px;font-weight:600;letter-spacing:2px;text-
