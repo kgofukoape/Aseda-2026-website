@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aseda – Beyond Infrastructure</title>
+<title>Aseda – Homepage Mockup 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -22,17 +22,18 @@
   /* NAV */
   nav{position:sticky;top:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,45,84,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,140,0,0.2)}
   .nav-logo{display:flex;flex-direction:column;gap:0px}
-  .nav-logo svg{width:130px;height:auto}
+  .nav-logo svg{width:120px;height:auto}
   .nav-logo-sub{font-size:9px;letter-spacing:5px;color:var(--orange);text-transform:uppercase;font-weight:500;margin-top:3px}
   .nav-links{display:flex;gap:36px;align-items:center}
   .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color 0.2s}
   .nav-links a:hover{color:var(--orange)}
   .nav-cta{background:var(--orange);color:var(--white)!important;padding:10px 24px;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none}
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+  .nav-hamburger span{display:block;width:24px;height:2px;background:var(--white)}
 
   /* HERO VIDEO */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
   .hero-video-wrap{position:absolute;inset:0;z-index:0}
-  /* Surgical Fix: Scale 1.1 applied here to mask watermark */
   .hero-video-wrap video{width:100%;height:100%;object-fit:cover;transform:scale(1.1);}
   .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(105deg, rgba(0,45,84,0.88) 0%, rgba(0,45,84,0.75) 40%, rgba(0,20,40,0.55) 100%);z-index:1}
   .hero-video-grain{position:absolute;inset:0;z-index:2;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px}
@@ -45,9 +46,7 @@
   .hero-sub{font-size:16px;line-height:1.85;color:rgba(255,255,255,0.7);max-width:520px;margin-bottom:52px;font-weight:300}
   .hero-actions{display:flex;gap:16px;align-items:center;margin-bottom:80px}
   .btn-primary{background:var(--orange);color:var(--white);padding:18px 40px;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-block;transition:background 0.2s}
-  .btn-primary:hover{background:var(--orange-light)}
   .btn-ghost{color:var(--white);padding:18px 40px;font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.35);display:inline-block;transition:all 0.2s;backdrop-filter:blur(4px)}
-  .btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
   .hero-badges{display:flex;gap:20px;flex-wrap:wrap}
   .hero-badge{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);backdrop-filter:blur(8px);padding:16px 24px;display:flex;flex-direction:column;gap:4px;min-width:140px}
   .badge-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--orange);line-height:1}
@@ -153,6 +152,15 @@
   .hero-left>*:nth-child(2){animation-delay:0.25s}
   .hero-left>*:nth-child(3){animation-delay:0.4s}
   .hero-left>*:nth-child(4){animation-delay:0.55s}
+  
+  /* FIXED MOBILE NAV CSS */
+  .nav-mobile{display:none;position:fixed;top:70px;left:0;right:0;background:rgba(0,45,84,0.98);padding:20px 24px;flex-direction:column;gap:15px;z-index:99;border-bottom:1px solid var(--orange)}
+  .nav-mobile.open{display:flex}
+  @media(max-width:1024px){
+    nav{padding:18px 30px}
+    .nav-links{display:none}
+    .nav-hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer}
+  }
 </style>
 </head>
 <body>
@@ -167,35 +175,30 @@
   </div>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="about.html" >About</a>
-    <a href="services.html" >Services</a>
-    <a href="projects.html" >Projects</a>
-    <a href="standards.html" >SHEQ</a>
-    <a href="impact.html" >Transformation</a>
-    <a href="aseda_insights.html" >Insights</a>
-    <a href="aseda_careers.html" >Careers</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="standards.html">SHEQ</a>
+    <a href="impact.html">Transformation</a>
+    <a href="aseda_insights.html">Insights</a>
+    <a href="aseda_careers.html">Careers</a>
     <a href="contact.html" class="nav-cta">Contact Us</a>
   </div>
-  <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Toggle menu">
+  <button class="nav-hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html" class="active">Home</a>
-  <a href="about.html" >About</a>
-  <a href="services.html" >Services</a>
-  <a href="projects.html" >Projects</a>
-  <a href="impact.html" >Transformation</a>
-  <a href="aseda_insights.html" >Insights</a>
-  <a href="aseda_careers.html" >Careers</a>
-  <a href="contact.html" class="nav-cta-mobile">Contact Us</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="impact.html">Transformation</a>
+  <a href="aseda_insights.html">Insights</a>
+  <a href="aseda_careers.html">Careers</a>
+  <a href="contact.html">Contact Us</a>
 </div>
-<script>
-function toggleMenu(btn){
-  btn.classList.toggle('open');
-  document.getElementById('nav-mobile').classList.toggle('open');
-}
-</script>
 
 <section class="hero">
   <div class="hero-video-wrap">
@@ -326,11 +329,11 @@ function toggleMenu(btn){
       </div>
       <span class="footer-logo-sub">Beyond Infrastructure</span>
       <p class="footer-desc">A premier infrastructure delivery and advisory firm serving investors, governments, and developers across Africa since 2005.</p>
-      <div class="footer-social">
-        <a class="s-icon" href="#">in</a>
-        <a class="s-icon" href="#">fb</a>
-        <a class="s-icon" href="#">tw</a>
-        <a class="s-icon" href="#">ig</a>
+      <div class=\"footer-social\">
+        <a class=\"s-icon\" href=\"#\">in</a>
+        <a class=\"s-icon\" href=\"#\">fb</a>
+        <a class=\"s-icon\" href=\"#\">tw</a>
+        <a class=\"s-icon\" href=\"#\">ig</a>
       </div>
     </div>
     <div class="footer-col"><h4>About</h4><div class="footer-links"><a href="about.html">Our Story</a><a href="about.html">The Aseda Way</a><a href="about.html">Leadership</a><a href="standards.html">SHEQ Standards</a><a href="about.html">Governance</a></div></div>
@@ -342,6 +345,12 @@ function toggleMenu(btn){
     <span class="footer-reg">Reg: 2005/019873/07 · VAT: 4640221281 · Level 1 B-BBEE</span>
   </div>
 </footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav-mobile').classList.toggle('open');
+}
+</script>
 
 </body>
 </html>
