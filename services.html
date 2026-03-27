@@ -148,11 +148,12 @@ nav{position:sticky;top:0;z-index:100;padding:18px 60px;display:flex;align-items
 .deco-l{height:1px;background:var(--orange)}
 
 /* ── SERVICE NAV TABS ── */
-.svc-nav{position:sticky;top:73px;z-index:90;background:var(--navy-mid);border-bottom:1px solid var(--border);padding:0 60px;display:flex;gap:0;overflow-x:auto}
-.svc-nav-item{padding:18px 28px;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;display:flex;align-items:center;gap:10px}
-.svc-nav-item:hover{color:var(--white)}
-.svc-nav-item.active{color:var(--orange);border-bottom-color:var(--orange)}
-.svc-nav-num{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:rgba(255,140,0,0.5)}
+.svc-nav{position:sticky;top:73px;z-index:90;background:#003358;border-bottom:1px solid rgba(255,255,255,0.08);padding:0 60px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.svc-nav-item{padding:18px 28px;font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.78);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:all 0.2s;display:flex;align-items:center;gap:10px}
+.svc-nav-item:hover{color:var(--white);border-bottom-color:rgba(255,140,0,0.5);background:rgba(255,255,255,0.05)}
+.svc-nav-item.active{color:var(--orange);border-bottom-color:var(--orange);font-weight:600}
+.svc-nav-num{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:rgba(255,140,0,0.85);transition:color 0.2s}
+  .svc-nav-item:hover .svc-nav-num{color:var(--orange)}
 
 /* ── INTRO STRIP ── */
 .intro-strip{padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;border-bottom:1px solid var(--border)}
@@ -281,7 +282,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
   <div class="nav-links">
     <a href="index.html" >Home</a>
     <a href="about.html" >About</a>
-    <a class="active"href="services.html">Services</a>
+    <a href="services.html" class="active">Services</a>
     <a href="projects.html" >Projects</a>
     <a href="standards.html" >SHEQ</a>
     <a href="impact.html" >Transformation</a>
@@ -294,16 +295,54 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
 <div class="nav-mobile" id="nav-mobile">
   <a href="index.html" >Home</a>
   <a href="about.html" >About</a>
-  <a href="services.html">Services</a>
+  <a href="services.html" class="active">Services</a>
   <a href="projects.html" >Projects</a>
   <a href="impact.html" >Transformation</a>
   <a href="contact.html" class="nav-cta-mobile">Contact Us</a>
 </div>
 <script>
+// Mobile menu
 function toggleMenu(btn){
   btn.classList.toggle('open');
   document.getElementById('nav-mobile').classList.toggle('open');
 }
+
+// Service tab active state
+(function(){
+  const tabs = document.querySelectorAll('.svc-nav-item');
+  const sections = ['civil','water','roads','pm','energy','advisory'];
+
+  // Click: set active immediately
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function(){
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  // Scroll: update active tab based on which section is in view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        tabs.forEach(t => t.classList.remove('active'));
+        const activeTab = document.querySelector('.svc-nav-item[href="#' + id + '"]');
+        if(activeTab) activeTab.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: '-30% 0px -60% 0px',
+    threshold: 0
+  });
+
+  // Observe after DOM loaded
+  document.addEventListener('DOMContentLoaded', function(){
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if(el) observer.observe(el);
+    });
+  });
+})();
 </script>
 
 <!-- PAGE HERO -->
@@ -327,7 +366,7 @@ function toggleMenu(btn){
 
 <!-- SERVICE NAV TABS -->
 <div class="svc-nav">
-  <a href="#civil"><span class="svc-nav-num">01</span> Civil & Structural</a>
+  <a href="#civil" class="svc-nav-item active"><span class="svc-nav-num">01</span> Civil & Structural</a>
   <a href="#water" class="svc-nav-item"><span class="svc-nav-num">02</span> Water & Sanitation</a>
   <a href="#roads" class="svc-nav-item"><span class="svc-nav-num">03</span> Roads & Transport</a>
   <a href="#pm" class="svc-nav-item"><span class="svc-nav-num">04</span> Project Management</a>
@@ -468,7 +507,7 @@ function toggleMenu(btn){
       <h2>Engineering the<br><em>Foundation</em> of<br>Built Africa.</h2>
       <div class="svc-section-sub">The cornerstone of Aseda's 21-year legacy — comprehensive design and implementation for the physical and natural built environment.</div>
       <p class="body-sm">From high-rise commercial towers to bulk earthworks, our civil and structural workstream delivers technically rigorous, commercially viable solutions across every sector of the built environment. Our approach combines world-class engineering expertise with deep knowledge of the South African and Pan-African context.</p>
-      <a href="projects.html" class="svc-cta-btn">View Civil & Structural Projects →</a>
+      <a href="#" class="svc-cta-btn">View Civil & Structural Projects →</a>
     </div>
     <div class="svc-section-right">
       <div class="svc-deliverables">
@@ -497,7 +536,7 @@ function toggleMenu(btn){
       <h2>Water is a<br><em>Human Right.</em><br>We Engineer It.</h2>
       <div class="svc-section-sub">Recognising water as a primary lever for human dignity, we deliver engineering solutions that protect and provide this critical resource.</div>
       <p class="body-sm">Our water and sanitation practice addresses the full spectrum of infrastructure needs — from bulk supply schemes serving entire districts to wastewater rehabilitation critical to environmental protection. We bring rigorous engineering to some of South Africa's most pressing infrastructure backlogs.</p>
-      <a href="projects.html" class="svc-cta-btn">View Water & Sanitation Projects →</a>
+      <a href="#" class="svc-cta-btn">View Water & Sanitation Projects →</a>
     </div>
     <div class="svc-section-right">
       <div class="svc-deliverables">
@@ -526,7 +565,7 @@ function toggleMenu(btn){
       <h2>Roads That Move<br><em>More Than</em><br>Traffic.</h2>
       <div class="svc-section-sub">Thinking differently about roads and transport so they represent not just movement of people and goods, but movement of economies.</div>
       <p class="body-sm">From multi-billion rand provincial road maintenance programmes to the planning and design of rural connector roads, our roads and transport practice covers the full infrastructure lifecycle. We combine technical rigour with a deep understanding of the socioeconomic impact of transport infrastructure.</p>
-      <a href="projects.html" class="svc-cta-btn">View Roads & Transport Projects →</a>
+      <a href="#" class="svc-cta-btn">View Roads & Transport Projects →</a>
     </div>
     <div class="svc-section-right">
       <div class="svc-deliverables">
@@ -555,7 +594,7 @@ function toggleMenu(btn){
       <h2>Surgical Precision.<br><em>From Inception</em><br>to Close-Out.</h2>
       <div class="svc-section-sub">Professional oversight ensuring that technical precision is always matched by commercial sustainability and rigorous timeline compliance.</div>
       <p class="body-sm">Aseda acts as the technical and administrative anchor on complex infrastructure programmes — providing the rigorous oversight that clients, investors, and communities depend on. Our project management practice is underpinned by SACPCMP registration and ISO 9001:2015 certification.</p>
-      <a href="projects.html" class="svc-cta-btn">View Project Management Work →</a>
+      <a href="#" class="svc-cta-btn">View Project Management Work →</a>
     </div>
     <div class="svc-section-right">
       <div class="svc-deliverables">
@@ -584,7 +623,7 @@ function toggleMenu(btn){
       <h2>Power for a<br><em>Constrained</em><br>Continent.</h2>
       <div class="svc-section-sub">Bridging the gap between technical power requirements and sustainable energy transition — delivered through Aseda Energy.</div>
       <p class="body-sm">South Africa's energy landscape demands more than conventional solutions. Through Aseda Energy, we bring specialist renewable energy expertise to industrial, commercial, and infrastructure clients — ensuring business continuity while accelerating the transition to sustainable power.</p>
-      <a href="contact.html" class="svc-cta-btn">Enquire About Energy Solutions →</a>
+      <a href="#" class="svc-cta-btn">Enquire About Energy Solutions →</a>
     </div>
     <div class="svc-section-right">
       <div class="entity-callout">
@@ -612,7 +651,7 @@ function toggleMenu(btn){
       <h2>Where Technical<br>Ambition Meets<br><em>Commercial Reality.</em></h2>
       <div class="svc-section-sub">Infrastructure is only as viable as the capital strategy that underpins it. Our Advisory division is the critical link between engineering potential and investment success.</div>
       <p class="body-sm">We ensure that complex projects are not only technically sound but commercially robust and resilient against long-term market shifts. From first feasibility to final bankability, we provide the strategic intelligence that unlocks funding and de-risks delivery.</p>
-      <a href="contact.html" class="svc-cta-btn">Talk to Our Advisory Team →</a>
+      <a href="#" class="svc-cta-btn">Talk to Our Advisory Team →</a>
     </div>
     <div class="svc-section-right">
       <div class="advisory-grid">
@@ -659,8 +698,8 @@ function toggleMenu(btn){
     <p>Speak to our team about your infrastructure challenge.</p>
   </div>
   <div class="cta-strip-actions">
-    <a href="contact.html" class="btn-navy">Get In Touch</a>
-    <a href="projects.html" class="btn-outline-navy">View Projects</a>
+    <a href="#" class="btn-navy">Get In Touch</a>
+    <a href="#" class="btn-outline-navy">View Projects</a>
   </div>
 </div>
 
