@@ -304,7 +304,50 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
 .page-hero-inner>*:nth-child(1){animation-delay:0.1s}
 .page-hero-inner>*:nth-child(2){animation-delay:0.25s}
 .page-hero-inner>*:nth-child(3){animation-delay:0.4s}
-</style>
+
+  /* ── CASE STUDY ── */
+  .case-study{padding:100px 60px;border-bottom:1px solid var(--border)}
+  .cs-header{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:0;padding-bottom:60px;border-bottom:1px solid var(--border)}
+  .cs-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-bottom:80px}
+  .cs-metric{background:var(--navy-mid);padding:40px 32px;border-top:3px solid var(--orange)}
+  .cs-metric-num{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:var(--orange);line-height:1;margin-bottom:8px}
+  .cs-metric-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:500;line-height:1.6}
+  .cs-body{display:flex;flex-direction:column}
+  .cs-chapter{display:grid;grid-template-columns:80px 1fr;gap:60px;padding:72px 0;align-items:start}
+  .cs-chapter-num{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:rgba(255,140,0,0.1);line-height:1;padding-top:4px}
+  .cs-chapter-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:16px}
+  .cs-chapter-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;line-height:1.2;color:var(--white);margin-bottom:28px}
+  .cs-chapter-text{font-size:15px;line-height:1.9;color:rgba(255,255,255,0.55);font-weight:300;margin-bottom:20px;max-width:720px}
+  .cs-divider{height:1px;background:var(--border)}
+  .cs-pillars{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:48px}
+  .cs-pillar{background:var(--navy-mid);padding:40px 36px;transition:background 0.2s;position:relative;overflow:hidden}
+  .cs-pillar::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transition:transform 0.3s;transform-origin:left}
+  .cs-pillar:hover::before{transform:scaleX(1)}
+  .cs-pillar:hover{background:var(--navy-light)}
+  .cs-pillar-icon{font-size:28px;margin-bottom:16px}
+  .cs-pillar-title{font-size:14px;font-weight:600;color:var(--white);margin-bottom:12px}
+  .cs-pillar-text{font-size:13px;line-height:1.85;color:rgba(255,255,255,0.5);font-weight:300}
+  .cs-impact-block{margin-top:48px;background:var(--navy-mid);padding:48px;border-left:3px solid var(--orange)}
+  .cs-impact-heading{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);font-weight:600;margin-bottom:32px}
+  .cs-impact-items{display:flex;flex-direction:column;gap:28px}
+  .cs-impact-item{display:grid;grid-template-columns:20px 1fr;gap:20px;align-items:start}
+  .cs-impact-marker{width:2px;height:100%;min-height:48px;background:var(--orange);opacity:0.4;margin-top:4px}
+  .cs-impact-stat{font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px}
+  .cs-impact-detail{font-size:13px;line-height:1.85;color:rgba(255,255,255,0.5);font-weight:300}
+  .cs-quote{margin-top:48px;padding:44px;border-left:3px solid var(--orange);background:rgba(255,140,0,0.04)}
+  .cs-quote p{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;line-height:1.55;color:rgba(255,255,255,0.7);font-style:italic;margin:0 0 20px}
+  .cs-quote-attr{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,140,0,0.55);font-weight:600}
+  @media(max-width:900px){
+    .case-study{padding:60px 24px}
+    .cs-header{grid-template-columns:1fr;gap:28px}
+    .cs-metrics{grid-template-columns:1fr 1fr}
+    .cs-chapter{grid-template-columns:1fr;gap:12px}
+    .cs-chapter-num{font-size:48px}
+    .cs-pillars{grid-template-columns:1fr}
+    .cs-impact-block{padding:32px 24px}
+    .cs-quote{padding:32px 24px}
+    .cs-quote p{font-size:20px}
+  }</style>
 </head>
 <body>
 
@@ -515,46 +558,189 @@ function toggleMenu(btn){
 </section>
 
 <!-- ITIRELE SHOWCASE -->
+<!-- ITIRELE HERO SECTION -->
 <section class="itirele-section">
   <div class="itirele-img">
-    <!-- IMAGE PLACEHOLDER: Aerial of Itirele road works — workers in orange hi-vis, North West landscape, golden hour. 800×600px -->
-    <div class="img-placeholder">
-      <div class="img-ph-icon">📸</div>
-      <div class="img-ph-label">Photo: Itirele Programme — workers on site, North West Province</div>
+    <!-- Replace with real aerial photo of Itirele programme -->
+    <div class="ph-bar"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg,#000a18 0%,#001830 40%,#002548 70%,#001830 100%)"></div>
+    <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 50px,rgba(255,255,255,0.01) 50px,rgba(255,255,255,0.01) 51px)"></div>
+    <div style="position:absolute;top:32px;left:32px;z-index:4;background:var(--orange);padding:7px 16px;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--navy)">Flagship Programme</div>
+    <div class="img-placeholder" style="opacity:1;z-index:2;position:relative">
+      <div style="opacity:0.18;text-align:center">
+        <div style="font-size:32px">🛣️</div>
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:white;margin-top:10px">Replace with site photo<br>North West Province</div>
+      </div>
     </div>
     <div class="itirele-img-overlay"></div>
   </div>
   <div class="itirele-content">
     <div>
-      <div class="itirele-tag">Flagship Programme · Roads & Youth Development</div>
+      <div class="itirele-tag">Flagship Programme · Roads &amp; Youth Development</div>
       <h2>National Youth<br>Service <em>Itirele</em><br>Programme</h2>
-      <p>A landmark Community-Based Programme combining routine road maintenance with accredited skills development and large-scale youth employment — embodying Aseda's "Business as Social" philosophy at R1.2 Billion scale.</p>
+      <p>A landmark Community-Based Programme combining routine road maintenance with accredited skills development and large-scale youth employment — embodying Aseda's "Beyond Infrastructure" philosophy at R1.2 Billion scale.</p>
       <div class="itirele-stats">
-        <div class="it-stat"><div class="it-stat-num">1,200+</div><div class="it-stat-label">Youth trained</div></div>
+        <div class="it-stat"><div class="it-stat-num">27,000+</div><div class="it-stat-label">Work opportunities</div></div>
         <div class="it-stat"><div class="it-stat-num">R1.2B</div><div class="it-stat-label">Programme value</div></div>
-        <div class="it-stat"><div class="it-stat-num">12mo</div><div class="it-stat-label">Service period</div></div>
+        <div class="it-stat"><div class="it-stat-num">1,200+</div><div class="it-stat-label">Youth trained</div></div>
         <div class="it-stat"><div class="it-stat-num">NQF</div><div class="it-stat-label">Accredited training</div></div>
       </div>
     </div>
     <div>
       <div class="itirele-targets">
         <div class="it-target">
-          <span style="min-width:120px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Women</span>
+          <span style="min-width:140px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Women recruitment</span>
           <div class="it-target-bar"><div class="it-target-fill" style="width:60%"></div></div>
           <span class="it-target-pct">60%</span>
         </div>
         <div class="it-target">
-          <span style="min-width:120px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Previously disadvantaged</span>
+          <span style="min-width:140px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Previously disadvantaged</span>
           <div class="it-target-bar"><div class="it-target-fill" style="width:80%"></div></div>
           <span class="it-target-pct">80%</span>
         </div>
         <div class="it-target">
-          <span style="min-width:120px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Persons with disabilities</span>
+          <span style="min-width:140px;font-size:12px;font-weight:500;color:rgba(0,45,84,0.8)">Persons with disabilities</span>
           <div class="it-target-bar"><div class="it-target-fill" style="width:10%"></div></div>
           <span class="it-target-pct">Incl.</span>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- CASE STUDY SECTION -->
+<section class="case-study">
+
+  <!-- HEADER -->
+  <div class="cs-header">
+    <div class="cs-header-left">
+      <div class="sec-label" style="color:var(--orange);font-size:11px;letter-spacing:5px;text-transform:uppercase;font-weight:500;margin-bottom:16px">Flagship Case Study</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:0">Infrastructure as a vehicle<br><em style="font-style:italic;color:var(--orange)">for economic dignity</em></h2>
+    </div>
+    <div class="cs-header-right">
+      <div style="display:inline-flex;align-items:center;gap:16px;margin-bottom:24px">
+        <div style="background:var(--orange);padding:7px 16px;font-size:9px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--navy)">Flagship Programme</div>
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:500">North West Province, SA</div>
+      </div>
+      <div style="font-size:15px;line-height:1.9;color:rgba(255,255,255,0.5);font-weight:300;max-width:440px">The NYS Itirele Programme — R1.2 Billion of integrated infrastructure and skills delivery, proving that high-level engineering and mass social transformation can coexist within a single budget.</div>
+    </div>
+  </div>
+
+  <!-- KEY METRICS BAR -->
+  <div class="cs-metrics">
+    <div class="cs-metric">
+      <div class="cs-metric-num">R1.2B</div>
+      <div class="cs-metric-label">Programme Value</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric-num">27,000+</div>
+      <div class="cs-metric-label">Work Opportunities Created</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric-num">1,200+</div>
+      <div class="cs-metric-label">Youth Technically Trained</div>
+    </div>
+    <div class="cs-metric">
+      <div class="cs-metric-num">60%</div>
+      <div class="cs-metric-label">Women Recruited — Industry Benchmark</div>
+    </div>
+  </div>
+
+  <div class="cs-body">
+
+    <!-- 01 — THE CHALLENGE -->
+    <div class="cs-chapter">
+      <div class="cs-chapter-num">01</div>
+      <div class="cs-chapter-content">
+        <div class="cs-chapter-label">The Challenge</div>
+        <h3 class="cs-chapter-title">A province that needed more<br>than engineering</h3>
+        <p class="cs-chapter-text">The North West Province required a massive rehabilitation of its critical road networks. However, the mandate went beyond asphalt and concrete — the provincial government required a partner capable of turning a large-scale engineering project into a sustainable engine for economic dignity and youth employment.</p>
+        <p class="cs-chapter-text">The challenge was not simply technical. It demanded an operator willing to hold two mandates simultaneously: deliver infrastructure to professional standards, and deliver opportunity to a generation that had largely been excluded from it.</p>
+      </div>
+    </div>
+
+    <div class="cs-divider"></div>
+
+    <!-- 02 — THE ASEDA SOLUTION -->
+    <div class="cs-chapter">
+      <div class="cs-chapter-num">02</div>
+      <div class="cs-chapter-content">
+        <div class="cs-chapter-label">The Aseda Solution</div>
+        <h3 class="cs-chapter-title">A vocational ecosystem,<br>not a project management exercise</h3>
+        <p class="cs-chapter-text">Aseda took the lead on the National Youth Service (NYS) Itirele Programme, implementing a "Business as Social" model. Our engineering team oversaw complex road maintenance and upgrades while simultaneously managing a monumental recruitment and training pipeline.</p>
+        <p class="cs-chapter-text">We moved beyond traditional project management to create a vocational ecosystem — one where every kilometre of road rehabilitated was also a training mile, and every work opportunity was a structured entry point into the built environment.</p>
+        <div class="cs-pillars">
+          <div class="cs-pillar">
+            <div class="cs-pillar-icon">🛣️</div>
+            <div class="cs-pillar-title">Engineering Delivery</div>
+            <div class="cs-pillar-text">Complex road maintenance and upgrades across the North West provincial network, delivered to SANRAL and DPWRT standards without compromise.</div>
+          </div>
+          <div class="cs-pillar">
+            <div class="cs-pillar-icon">🎓</div>
+            <div class="cs-pillar-title">Training Pipeline</div>
+            <div class="cs-pillar-text">A structured NQF-accredited skills development programme running concurrently with site delivery — giving participants portable, recognised qualifications.</div>
+          </div>
+          <div class="cs-pillar">
+            <div class="cs-pillar-icon">👩‍🔧</div>
+            <div class="cs-pillar-title">Inclusive Recruitment</div>
+            <div class="cs-pillar-text">A deliberate 60% women recruitment target — actively dismantling the historic exclusion of women from civil engineering and infrastructure careers.</div>
+          </div>
+          <div class="cs-pillar">
+            <div class="cs-pillar-icon">📋</div>
+            <div class="cs-pillar-title">Quality Assurance</div>
+            <div class="cs-pillar-text">Aseda-led QA/QC protocols ensuring that community-based workforces delivered to professional infrastructure standards — inclusion and quality in alignment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-divider"></div>
+
+    <!-- 03 — THE LEGACY -->
+    <div class="cs-chapter">
+      <div class="cs-chapter-num">03</div>
+      <div class="cs-chapter-content">
+        <div class="cs-chapter-label">The Legacy</div>
+        <h3 class="cs-chapter-title">The definitive blueprint for<br>how Aseda delivers infrastructure</h3>
+        <p class="cs-chapter-text">The Itirele Programme remains the definitive blueprint for how Aseda delivers infrastructure. By proving that high-level engineering and mass social transformation can coexist within a single budget, we redefined what successful infrastructure delivery looks like in a developing economy.</p>
+
+        <!-- IMPACT METRICS -->
+        <div class="cs-impact-block">
+          <div class="cs-impact-heading">The Impact Metrics</div>
+          <div class="cs-impact-items">
+            <div class="cs-impact-item">
+              <div class="cs-impact-marker"></div>
+              <div>
+                <div class="cs-impact-stat">Economic Opportunities</div>
+                <div class="cs-impact-detail">27,000+ work opportunities created within the North West Province — direct, sustained employment tied to infrastructure delivery.</div>
+              </div>
+            </div>
+            <div class="cs-impact-item">
+              <div class="cs-impact-marker"></div>
+              <div>
+                <div class="cs-impact-stat">Technical Upskilling</div>
+                <div class="cs-impact-detail">1,200+ youth successfully completed technical training in road construction and maintenance, leaving with NQF-accredited qualifications and demonstrated site experience.</div>
+              </div>
+            </div>
+            <div class="cs-impact-item">
+              <div class="cs-impact-marker"></div>
+              <div>
+                <div class="cs-impact-stat">Inclusive Transformation</div>
+                <div class="cs-impact-detail">60% of all youth recruited were women — setting a new industry benchmark for gender representation in civil engineering and infrastructure delivery in South Africa.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CLOSING QUOTE -->
+        <div class="cs-quote">
+          <p>"By proving that high-level engineering and mass social transformation can coexist within a single budget, we redefined what successful infrastructure delivery looks like in a developing economy."</p>
+          <div class="cs-quote-attr">Aseda Infrastructure &mdash; Beyond Infrastructure</div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
