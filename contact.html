@@ -219,7 +219,9 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
     <a href="projects.html">Projects</a>
     <a href="standards.html">SHEQ</a>
     <a href="impact.html">Transformation</a>
-    <a class="active"href="contact.html">Contact Us</a>
+    <a href="#">Insights</a>
+    <a href="#">Careers</a>
+    <a href="contact.html" class="nav-cta active">Contact Us</a>
   </div>
   <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Toggle menu">
     <span></span><span></span><span></span>
@@ -232,6 +234,8 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
   <a href="projects.html">Projects</a>
   <a href="standards.html">SHEQ</a>
   <a href="impact.html">Transformation</a>
+  <a href="#">Insights</a>
+  <a href="#">Careers</a>
   <a href="contact.html" class="nav-cta-mobile">Contact Us</a>
 </div>
 
@@ -262,34 +266,34 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
       <div class="sec-label">Send a Message</div>
       <h2>Start the<br><em>Conversation.</em></h2>
       <p>Tell us about your project, your challenge, or your organisation — and we'll put you in touch with the right member of our team.</p>
-      <div id="contact-form">
+      <form id="contact-form" action="https://formspree.io/f/mdapkjqe" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label>First Name *</label>
-            <input type="text" placeholder="Your first name" required>
+            <input type="text" name="first_name" placeholder="Your first name" required>
           </div>
           <div class="form-group">
             <label>Last Name *</label>
-            <input type="text" placeholder="Your last name" required>
+            <input type="text" name="last_name" placeholder="Your last name" required>
           </div>
         </div>
         <div class="form-group">
           <label>Organisation</label>
-          <input type="text" placeholder="Company or institution name">
+          <input type="text" name="organisation" placeholder="Company or institution name">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Email Address *</label>
-            <input type="email" placeholder="your@email.com" required>
+            <input type="email" name="email" placeholder="your@email.com" required>
           </div>
           <div class="form-group">
             <label>Phone Number</label>
-            <input type="tel" placeholder="+27 11 000 0000">
+            <input type="tel" name="phone" placeholder="+27 11 000 0000">
           </div>
         </div>
         <div class="form-group">
           <label>Nature of Enquiry *</label>
-          <select required>
+          <select name="enquiry_type" required>
             <option value="" disabled selected>Select enquiry type</option>
             <option>Project enquiry — Civil & Structural</option>
             <option>Project enquiry — Water & Sanitation</option>
@@ -304,15 +308,17 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
         </div>
         <div class="form-group">
           <label>Message *</label>
-          <textarea placeholder="Briefly describe your project, challenge, or question..." required></textarea>
+          <textarea name="message" placeholder="Briefly describe your project, challenge, or question..." required></textarea>
         </div>
         <div class="form-check">
           <input type="checkbox" id="contact-popia" required>
           <label for="contact-popia">I consent to Aseda processing my personal information to respond to my enquiry, in accordance with the <a href="#">POPIA Privacy Policy</a>. *</label>
         </div>
-        <button class="form-submit" onclick="submitContact()">Send Message →</button>
-      </div>
-      <div class="form-success" id="contact-success">
+        <input type="hidden" name="_subject" value="New Enquiry — Aseda Website">
+        <input type="hidden" name="_next" value="">
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+      <div class="form-success" id="contact-success" style="display:none">
         <div class="form-success-icon">✅</div>
         <h3>Message Received</h3>
         <p>Thank you for reaching out. A member of the Aseda team will be in touch within one business day. For urgent enquiries please call our Midrand office directly on +27 11 312 4070.</p>
@@ -332,7 +338,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
       </div>
       <div class="contact-detail">
         <div class="contact-detail-label">General Enquiries</div>
-        <div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#ccada8a1a5a28cadbfa9a8ade2afa3e2b6ad"><span class="__cf_email__" data-cfemail="e283868f8b8ca28391878683cc818dcc9883">[email&#160;protected]</span></a></div>
+        <div class="contact-detail-value"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a></div>
         <div class="contact-detail-sub">All general, procurement, and B-BBEE documentation requests</div>
       </div>
       <div class="contact-detail">
@@ -347,7 +353,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
       </div>
       <div class="contact-detail">
         <div class="contact-detail-label">Ghana — Accra</div>
-        <div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#4726232a2e29072634222326692428693d26"><span class="__cf_email__" data-cfemail="93f2f7fefafdd3f2e0f6f7f2bdf0fcbde9f2">[email&#160;protected]</span></a></div>
+        <div class="contact-detail-value"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a></div>
         <div class="contact-detail-sub">P.O. Box CT66654, Accra, Ghana</div>
       </div>
       <div class="contact-detail">
@@ -408,7 +414,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
         </div>
         <div class="od-item">
           <div class="od-label">Email</div>
-          <div class="od-value"><a href="/cdn-cgi/l/email-protection#95f4f1f8fcfbd5f4e6f0f1f4bbf6fabbeff4"><span class="__cf_email__" data-cfemail="b8d9dcd5d1d6f8d9cbdddcd996dbd796c2d9">[email&#160;protected]</span></a></div>
+          <div class="od-value"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a></div>
         </div>
         <div class="od-item">
           <div class="od-label">Hours</div>
@@ -433,7 +439,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
         </div>
         <div class="od-item">
           <div class="od-label">Email</div>
-          <div class="od-value"><a href="/cdn-cgi/l/email-protection#78191c15111638190b1d1c19561b17560219"><span class="__cf_email__" data-cfemail="cdaca9a0a4a38dacbea8a9ace3aea2e3b7ac">[email&#160;protected]</span></a></div>
+          <div class="od-value"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a></div>
         </div>
         <div class="od-item">
           <div class="od-label">Hours</div>
@@ -458,7 +464,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
         </div>
         <div class="od-item">
           <div class="od-label">Email</div>
-          <div class="od-value"><a href="/cdn-cgi/l/email-protection#2f4e4b4246416f4e5c4a4b4e014c4001554e"><span class="__cf_email__" data-cfemail="2342474e4a4d6342504647420d404c0d5942">[email&#160;protected]</span></a></div>
+          <div class="od-value"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a></div>
         </div>
         <div class="od-item">
           <div class="od-label">Hours</div>
@@ -479,7 +485,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
         </div>
         <div class="od-item">
           <div class="od-label">Email</div>
-          <div class="od-value"><a href="/cdn-cgi/l/email-protection#b6d7d2dbdfd8f6d7c5d3d2d798d5d998ccd7"><span class="__cf_email__" data-cfemail="640500090d0a2405170100054a070b4a1e05">[email&#160;protected]</span></a></div>
+          <div class="od-value"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a></div>
         </div>
         <div class="od-item">
           <div class="od-label">Director</div>
@@ -507,7 +513,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
       </div>
       <div class="enquiry-title">Project & Technical Enquiries</div>
       <p class="enquiry-desc">Civil, structural, water, roads, or energy projects — tell us about your scope and we'll connect you with the relevant service lead.</p>
-      <div class="enquiry-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5736333a3e39173624323336793438792d36">[email&#160;protected]</a> · +27 11 312 4070</div>
+      <div class="enquiry-contact"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a> · +27 11 312 4070</div>
     </div>
     <div class="enquiry-card">
       <div class="enquiry-icon">
@@ -515,7 +521,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
       </div>
       <div class="enquiry-title">Procurement & B-BBEE Documentation</div>
       <p class="enquiry-desc">Requesting our B-BBEE certificate, tax clearance, CIDB grading, or ISO certificate for tender submissions? We respond within 24 hours.</p>
-      <div class="enquiry-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ea8b8e878384aa8b998f8e8bc48985c4908b">[email&#160;protected]</a> · Ref: ASEDA WEBSITE 2026</div>
+      <div class="enquiry-contact"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a> · Ref: ASEDA WEBSITE 2026</div>
     </div>
     <div class="enquiry-card">
       <div class="enquiry-icon">
@@ -523,7 +529,7 @@ footer{background:#001529;padding:60px 60px 32px;border-top:1px solid var(--bord
       </div>
       <div class="enquiry-title">Media & Strategic Partnerships</div>
       <p class="enquiry-desc">Press enquiries, speaking opportunities, partnership proposals, and strategic collaboration discussions — reach the executive team directly.</p>
-      <div class="enquiry-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e081848d898ea08193858481ce838fce9a81">[email&#160;protected]</a> · Attn: Dennis Mathibe</div>
+      <div class="enquiry-contact"><a href="mailto:admin@aseda.co.za">admin@aseda.co.za</a> · Attn: Dennis Mathibe</div>
     </div>
   </div>
 </section>
